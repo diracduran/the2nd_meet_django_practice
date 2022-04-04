@@ -1,0 +1,34 @@
+   Сохраните историю в файл task_01_log.txt, начиная с перехода в каталог LESSON_02/practice (открыть в текстовом редакторе)
+
+   
+   11  cd the2nd_l02_practice_01
+   12  mkdir practice_1
+   13  mkdir practice_2
+   14  mkdir practice_3
+   15  cd practice_1
+   16  touch ex_01.txt
+   17  touch ex_02.txt
+   18  touch ex_03.txt
+   19  touch ex_04.txt
+   20  ls practice_1 -a
+   21  ls
+   22  ls -a
+   23  touch script_01.py
+   24  touch script_02.py
+   25  echo "why do you never see elephants hiding in trees? because they're so good at it." > ex_01.txt
+   26  echo "i was just looking at my ceiling. not sure if it's the best ceiling in the world, but it's definitely up there." > ex_02.txt
+   27  echo "why did the burglar hang his mugshot on the wall? to prove that was framed!" > ex_03.txt
+   28  echo "i'd like to start a diet, but i've got too much on my plate right now." > ex_04.txt
+   29  cp ex_03.txt ../practice_2
+   30  cp ex_04.txt ../practice_2
+   31  mv script_01.py ../practice_3
+   32  mv script_02.py ../practice_3
+   33  rm ex_03.txt
+   34  rm ex_04.txt
+   35   less ex_01.txt
+   36  cat ex_01.txt
+   37  cat ex_02.txt
+   38  cd ../
+   39  rm -R practice_1
+   40  touch task_01_log.txt
+   41  history

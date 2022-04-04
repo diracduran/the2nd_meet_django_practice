@@ -1,0 +1,50 @@
+   Сохраните историю в файл task_03_log.txt, начиная с создания каталога the2nd_l02_practice_03
+   
+   51  mkdir the2nd_l02_practice_03
+   52  cd the2nd_l02_practice_01
+   53  cp practice_3 ../the2nd_l02_practice_03
+   54  cp -R practice_3 ../the2nd_l02_practice_03
+   55  cd ../the2nd_l02_practice_03
+   56  ls
+   57  nano script_01.py
+   58  python script_01.py
+   59  python script_01.py
+   60  python script_01.py
+   61  python script_01.py
+   62  python script_01.py
+   63  python script_01.py
+   64  cat IRZDtWSnWDd.txt
+   65  nano script_02.py
+   66  python script_02.py
+   67  python script_02.py
+   68  python script_02.py
+   69  ls -all
+   70  touch task_03_log.txt
+   71  history
+   72  rmdir the2nd_l02_practice_03
+   73  rmdir -R the2nd_l02_practice_03
+   74  rd -R the2nd_l02_practice_03
+   75  mkdir the2nd_l02_practice_03
+   76  cd ../the2nd_l02_practice_01
+   77  cp practice_3 ../the2nd_l02_practice_03
+   78  cp -R practice_3 ../the2nd_l02_practice_03
+   79  mkdir the2nd_l02_practice_03
+   80  cd the2nd_l02_practice_01
+   81  cp -R practice_3 ../the2nd_l02_practice_03
+   82  cd ../the2nd_l02_practice_03/practice_3
+   83  nano script_01.py
+   84  python script_01.py
+   85  python script_01.py
+   86  python script_01.py
+   87  python script_01.py
+   88  python script_01.py
+   89  python script_01.py
+   90  python script_01.py
+   91  cat 7h3oGtrOfxc.txt
+   92  nano script_02.py
+   93  python script_02.py
+   94  python script_02.py
+   95  python script_02.py
+   96  ls -all
+   97  touch task_03_log.txt
+   98  history

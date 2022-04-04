@@ -1,0 +1,7 @@
+Сохраните историю в файл task_02_log.txt, начиная с создания каталога the2nd_l02_practice_02
+   43  mkdir the2nd_l02_practice_02
+   44  nano
+   45  mv jokes.txt the2nd_l02_practice_02       // я переместила jokes.txt в нужную папку
+   46  cd the2nd_l02_practice_02
+   47  touch task_02_log.txt
+   48  history
