@@ -1,0 +1,44 @@
+# the2nd_l03_practice_03
+1) В папке LESSON_03 создайте папку the2nd_l03_practice_03. Перейдите в папку the2nd_l03_practice_03.
+
+2) В папке the2nd_l03_practice_03 создайте новый репозиторий.
+
+3) Далее создайте файл script_03.py (любым способом - в терминале, или в текстовом редакторе). Напишите программу в созданном файле:
+#script_03.py
+import requests
+
+output_filename = "unsplash_image.jpeg"
+BASE_URL = "https://source.unsplash.com/random"
+
+response = requests.get(BASE_URL)
+print(response.ok)
+with open(output_filename, "wb") as f:
+    f.write(response.content)
+
+4) Запустите файл script_03.py (любым способом). В результате в папке должен появиться файл unsplash_image.jpeg.
+
+5) Проверьте статус (status), подготовьте файлы unsplash_image.jpeg, script_03.py (add), сделайте первый коммит (commit) с комментарием "Create script_03.py and the result - unsplash_image.jpeg".
+
+6) Создайте новую ветку the2nd_l03_practice_03_branch.
+
+7) Перейдите на новую ветку the2nd_l03_practice_03_branch дополните файл script_03.py таким образом, чтобы программа позволяла за один запуск сохранять 4 разных изображения с именами:
+unsplash_01.jpeg, unsplash_02.jpeg, unsplash_03.jpeg, unsplash_04.jpeg.
+
+8) Находясь на ветке the2nd_l03_practice_03_branch запустите файл (любым способом) и убедитесь, что создаются все 4 файла изображения.
+
+9) Проверьте статус (status), подготовьте только файл script_03.py (add), сделайте коммит (commit) на ветке the2nd_l03_practice_03_branch с комментарием "Add extra functionality to script_03.py".
+
+10) Перейдите на ветку master.
+
+11) Выполните слияние (merge) ветки the2nd_l03_practice_03_branch c веткой master.
+
+12) Запустите файл script_03.py (любым способом). В результате в папке должны появиться файлы unsplash_01.jpeg, unsplash_02.jpeg, unsplash_03.jpeg, unsplash_04.jpeg. 
+
+13) Удалите ветку the2nd_l03_practice_03_branch.
+
+14) Проверьте статус (status), подготовьте файлы, которые еще не подготовлены (add), сделайте второй коммит (commit) с комментарием "Rebuild script_03.py and the results of 4 jpeg files".
+
+15) Проверьте историю примененных команд (log) и сохраните ее полностью в файл l03_03_log.txt в папке the2nd_l03_practice_03 (файл создайте любым способом, данные скопируйте из терминала (для прокрутки истории коммитов нажимайте кнопку 'вниз', для выхода из истории shift + Z дважды)).
+
+16) Проверьте статус (status), подготовьте файл l03_03_log.txt (add), сделайте коммит (commit) с комментарием "Add l03_03_log.txt".
+

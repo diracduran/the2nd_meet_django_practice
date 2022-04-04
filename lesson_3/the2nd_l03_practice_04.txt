@@ -1,0 +1,45 @@
+# the2nd_l03_practice_04
+1) В папке LESSON_03 создайте папку the2nd_l03_practice_04. Перейдите в папку the2nd_l03_practice_04.
+
+2) В папке the2nd_l03_practice_04 создайте новый репозиторий.
+
+3) Далее создайте файл script_04.py (любым способом - в терминале, или в текстовом редакторе). Напишите программу в созданном файле:
+
+#script_04.py
+import requests
+gif_list = ["dog", "cat", "duck"]
+BASE_URL = "https://api.giphy.com/v1/stickers/random"
+for gif in gif_list:
+    params = dict(
+        api_key="dc6zaTOxFJmzC",
+        tag="lucky",
+        rating="g",
+        fmt='json'
+        )
+    response = requests.get(BASE_URL, params=params)
+    print(response.ok)
+    gif_url = response.json()['data']['fixed_height_small_url']
+    resp_gif = requests.get(gif_url)
+    with open(gif+".gif", "wb") as f:
+        f.write(resp_gif.content)
+
+4) Запустите файл script_04.py (любым способом). В результате в папке должны появиться 3 файла .gif.
+
+5) Создайте файл .gitignore.
+
+6) Воспользуйтесь сайтом https://gitignore.io/ для создания шаблон для файлов .gitignore
+Используйте шаблон для python.
+
+7) Откройте файл .gitignore и добавьте в него возможность игнорировать gif файлы для данного репозитория.
+
+8) Проверьте статус (status), подготовьте файлы (add), сделайте первый коммит (commit) с комментарием "Create script_04.py".
+
+9) Далее отправьте изменение на сервер GitHub (используйте Ваш аккаунт - не забудьте создать одноименный репозиторий). Вы должны убедиться, что все файлы .gif не переданы на удаленный (remote) репозиторий.
+
+10) Проверьте историю примененных команд (log) и сохраните ее полностью в файл l03_04_log.txt в папке the2nd_l03_practice_04 (файл создайте любым способом, данные скопируйте из терминала (для прокрутки истории коммитов нажимайте кнопку 'вниз', для выхода из истории shift + Z дважды))
+
+11) Внизу файла l03_04_log.txt добавьте ссылку на Ваш удаленный (remote) репозиторий GitHub.
+
+12) Проверьте статус (status), подготовьте файл l03_04_log.txt (add), сделайте коммит (commit) с комментарием "Add l03_04_log.txt".
+
+13) Далее отправьте изменение на сервер GitHub (используйте Ваш аккаунт).

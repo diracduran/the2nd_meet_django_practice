@@ -1,0 +1,68 @@
+# the2nd_l03_practice_02
+1) В папке LESSON_03 создайте папку the2nd_l03_practice_02. Перейдите в папку the2nd_l03_practice_02
+
+2) В папке the2nd_l03_practice_02 создайте новый репозиторий.
+
+3) Далее создайте файл script_02.py (любым способом - в терминале, или в текстовом редакторе). Напишите программу в созданном файле:
+
+#script_02.py
+import requests
+
+BASE_URL = "https://api.giphy.com/v1/stickers/random"
+params = dict(
+        api_key="dc6zaTOxFJmzC",
+        tag="python",
+        rating="g",
+        fmt='json'
+        )
+response = requests.get(BASE_URL, params=params)
+print(response.ok)
+gif_url = response.json()['data']['fixed_height_small_url']
+resp_gif = requests.get(gif_url)
+with open("test.gif", "wb") as f:
+    f.write(resp_gif.content)
+
+4) Запустите файл script_02.py (любым способом). В результате в папке должен появиться файл test.gif.
+
+5) Проверьте статус (status), подготовьте файлы test.gif, script_02.py (add), сделайте первый коммит (commit) с комментарием "Create script_02.py and the result - test.gif".
+
+6) Далее отправьте изменение на сервер GitHub (используйте Ваш аккаунт - не забудьте создать одноименный репозиторий).
+
+7) После отредактируйте файл script_02.py (любым способом):
+
+#script_02.py
+import requests
+gif_list = ["fail", "people", "lucky"]
+BASE_URL = "https://api.giphy.com/v1/stickers/random"
+for gif in gif_list:
+    params = dict(
+        api_key="dc6zaTOxFJmzC",
+        tag="lucky",
+        rating="g",
+        fmt='json'
+        )
+    response = requests.get(BASE_URL, params=params)
+    print(response.ok)
+    gif_url = response.json()['data']['fixed_height_small_url']
+    resp_gif = requests.get(gif_url)
+    with open(gif+".gif", "wb") as f:
+        f.write(resp_gif.content)
+
+8) Запустите файл script_02.py (любым способом). В результате в папке должны появиться 3 файла .gif.
+
+9) Проверьте статус (status), подготовьте файлы, которые еще не подготовлены (add), сделайте второй коммит (commit) с комментарием "Rebuild script_02.py and the results of 3 gif files".
+
+10) Далее отправьте изменение на сервер GitHub (используйте Ваш аккаунт).
+
+11) Проверьте историю примененных команд (log) и сохраните ее полностью в файл l03_02_log.txt в папке the2nd_l03_practice_02 (файл создайте любым способом, данные скопируйте из терминала (для прокрутки истории коммитов нажимайте кнопку 'вниз', для выхода из истории shift + Z дважды)).
+
+12) Внизу файла l03_02_log.txt добавьте ссылку на Ваш удаленный (remote) репозиторий GitHub.
+
+13) Проверьте статус (status), подготовьте файл l03_02_log.txt (add), сделайте коммит (commit) с комментарием "Add l03_02_log.txt".
+
+14) Далее отправьте изменение на сервер GitHub (используйте Ваш аккаунт).
+
+
+
+
+
