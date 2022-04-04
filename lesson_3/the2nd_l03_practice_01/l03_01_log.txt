@@ -1,0 +1,29 @@
+commit f91d9138ebe12910fd5e1da644e4f4739ec102bf (HEAD -> main)
+Author: eromanova <eromanova@molnet.ru>
+Date:   Mon Apr 4 13:11:33 2022 +0300
+
+    added some images
+
+commit 7d7c69b84a0a0a37fb1349f1a28659c6791a4e0d
+Author: eromanova <eromanova@molnet.ru>
+Date:   Mon Apr 4 13:04:47 2022 +0300
+
+    Create the2nd_l03_practice_01 and script_01.py
+
+commit 1530b922668026bd2cf0f64a73b69c8d06880981 (origin/main)
+Author: eromanova <eromanova@molnet.ru>
+Date:   Mon Apr 4 12:58:48 2022 +0300
+
+    added lessons 2 and 3
+:...skipping...
+commit f91d9138ebe12910fd5e1da644e4f4739ec102bf (HEAD -> main)
+Author: eromanova <eromanova@molnet.ru>
+Date:   Mon Apr 4 13:11:33 2022 +0300
+
+    added some images
+
+commit 7d7c69b84a0a0a37fb1349f1a28659c6791a4e0d
+Author: eromanova <eromanova@molnet.ru>
+Date:   Mon Apr 4 13:04:47 2022 +0300
+
+    Create the2nd_l03_practice_01 and script_01.py
