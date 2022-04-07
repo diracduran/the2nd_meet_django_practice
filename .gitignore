@@ -161,3 +161,8 @@ cython_debug/
 #my stuff
 .gitignore
 **/lecture
+
+lesson_3/the2nd_l03_practice_01
+lesson_3/the2nd_l03_practice_02
+lesson_3/the2nd_l03_practice_03
+lesson_3/the2nd_l03_practice_04
