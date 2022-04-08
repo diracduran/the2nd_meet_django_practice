@@ -1,0 +1,15 @@
+commit 423ce3fca018325ba608d25588aada4bdd54b89b (HEAD -> main, l03_02/main)
+Author: eromanova <eromanova@molnet.ru>
+Date:   Mon Apr 4 18:55:06 2022 +0300
+
+    Rebuild script_02.py and the results of 3 gif files
+
+commit 8694c1a7f1c9478874e036f8a7d8109482bb6e89
+Author: eromanova <eromanova@molnet.ru>
+Date:   Mon Apr 4 18:52:31 2022 +0300
+
+    Create script_02.py and the result - test.gif
+
+
+
+https://github.com/diracduran/the2nd_l03_practice_02
