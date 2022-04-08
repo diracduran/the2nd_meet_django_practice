@@ -1,0 +1,17 @@
+commit caa56658e0eaf885744a1d3c5209605f21ad9b50 (HEAD -> main, l03_04/main)
+Author: eromanova <eromanova@molnet.ru>
+Date:   Mon Apr 4 19:27:44 2022 +0300
+
+    Trying to add gifs
+
+commit 9444e03ef94f43e259e652a3db02da80625c3423
+Author: eromanova <eromanova@molnet.ru>
+Date:   Mon Apr 4 19:22:48 2022 +0300
+
+    Add gitignore
+
+commit 1e7e9af378935ee79a4f98707a257bd59c26a409
+Author: eromanova <eromanova@molnet.ru>
+Date:   Mon Apr 4 19:21:51 2022 +0300
+
+    Create script_04.py
