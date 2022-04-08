@@ -1,0 +1,22 @@
+commit b4f1f57f486750328dae604e1c34210da925eeba (HEAD -> main, l03_03/the2nd_l03_practice_03_branch, l03_03/main)
+Author: eromanova <eromanova@molnet.ru>
+Date:   Mon Apr 4 19:06:16 2022 +0300
+
+    Add extra functionality to script_03.py and the results - unsplash images~
+
+commit 333f32f20deedc545ffc9d5ba89f445bb832fd8e
+Author: eromanova <eromanova@molnet.ru>
+Date:   Mon Apr 4 19:03:30 2022 +0300
+
+    Add extra functionality to script_03.py
+
+commit 1d108af1a369fb499d241f25b808a976120a7fdd
+Author: eromanova <eromanova@molnet.ru>
+Date:   Mon Apr 4 19:00:16 2022 +0300
+
+    Create script_03.py and the result - unsplash_image.jpeg
+
+
+
+
+https://github.com/diracduran/the2nd_l03_practice_03/tree/main
