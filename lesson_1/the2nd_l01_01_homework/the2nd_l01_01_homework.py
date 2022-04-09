@@ -321,13 +321,14 @@ YEAR = 2021
 # Ваш код ниже
 
 # API DETAILS
-KEY = '26315914-cd93893e23695d073e1b908cf' # получите ключ после регистрации
+KEY = '26315914-cd93893e23695d073e1b908cf' # переписать перез перезаливом!!!!!
 BASE_URL = 'https://pixabay.com/api/'
 CATEGORIES = ['fashion', 'nature', 'backgrounds', 'science', 'education', 'people', 'feelings', 'religion', 'health', 'places', 'animals', 'industry', 'food', 'computer', 'sports', 'transportation', 'travel', 'buildings', 'music']
 
 # Get random image within API
 def get_random_images(category, q):
     params = {
+        "key": KEY,
         "orientation": "horizontal",
         "image_type": "photo",
         "min_width": 1920,
@@ -336,9 +337,9 @@ def get_random_images(category, q):
         "q": q
     }
     """Функция для получения списка ссылок на изображения по заданным параметрам"""
-    res = requests.get(BASE_URL + "?key=" + KEY, params=params)
+    res = requests.get(BASE_URL, params=params)
     data = res.json()
-    response = [d['largeImageURL'] for d in data['hits'] if params['category'] in CATEGORIES or params['q'] == q][:13]
+    response = [d['largeImageURL'] for d in data['hits'] if params['category'] in CATEGORIES or params['q'] == q][:12]
     return response
 
 ##### END PART 1 #####
@@ -415,19 +416,29 @@ if __name__ == '__main__':
     MY_OWN = ''
     CATEGORY = ''
 
+    CATEGORIES_range = range(1, len(CATEGORIES) + 1)
+
+    # CATEGORIES_dict = dict(zip(CATEGORIES_range, CATEGORIES))
+
     while True:
-        if question.isnumeric:
-            CATEGORY = question
-            MY_OWN = ''
-            break
-        elif question == 'my own'.lower():
+        if question == 'my own'.lower():
             MY_OWN = input('Введите запрос: ')
             CATEGORY = ''
-            break
+            get_random_images(category=CATEGORY, q=MY_OWN)
+            break # переписать!!!!!
         elif question == 'random'.lower():
             CATEGORY = CATEGORIES[random.randint(1, len(CATEGORIES))]
             MY_OWN = ''
-            break
+            get_random_images(category=CATEGORY, q=MY_OWN)
+            break # переписать!!!!!
+        elif question.isnumeric():
+            # if question in CATEGORIES_dict.keys():
+            #     for number, category in CATEGORIES_dict.items():
+            if int(question) in CATEGORIES_range:
+                CATEGORY = CATEGORIES[int(question) - 1]
+                MY_OWN = ''
+                get_random_images(category=CATEGORY, q=MY_OWN)
+            break # переписать!!!!!
 
 
     # Запрос Цвета
