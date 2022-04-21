@@ -1,0 +1,21 @@
+.ratings {
+    margin-bottom: 50px;
+    .rating-table {
+        border-collapse: collapse;
+        text-align: left;
+        border: 1px solid #ccc;
+        tr {
+            border-bottom: 1px solid #ccc;
+            &:last-child {
+                border-bottom: none;
+            }
+            th, td {
+                padding: 10px;
+                border-right: 1px solid #ccc;
+            }
+            th:last-child, td:last-child {
+                border-right: none;
+            }
+        }
+    }
+}
