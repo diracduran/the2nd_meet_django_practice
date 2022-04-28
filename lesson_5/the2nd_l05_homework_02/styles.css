@@ -1,0 +1,210 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  vertical-align: top;
+  box-sizing: border-box;
+}
+body {
+  font-size: 16px;
+}
+a {
+  color: #000;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+.page-title {
+  margin-bottom: 40px;
+}
+.page-title h1 {
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+.layout-12 {
+  width: 1116px;
+  margin: 0px auto;
+  /* font-size: 0px; */
+}
+.layout-03 {
+  width: 252px;
+}
+.layout-06 {
+  width: 540px;
+}
+.col {
+  margin-right: 36px;
+  display: inline-block;
+}
+.col:last-child {
+  margin-right: 0px;
+}
+.layout-06 .layout-03.col:nth-child(2n) {
+  margin-right: 0px;
+}
+.layout-03.col:nth-child(4n) {
+  margin-right: 0px;
+}
+.layout-06.col:nth-child(2n) {
+  margin-right: 0px;
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  /* margin-bottom: 50px; */
+  /* border: 1px solid #ccc;
+    padding: 0 10px; */
+}
+.nav ul {
+  display: inline-flex;
+  justify-content: flex-end;
+  list-style: none;
+  margin-top: 20px;
+}
+.nav ul li {
+  font-size: 18px;
+}
+.nav ul li:not(:last-child) {
+  margin-right: 20px;
+}
+.nav ul li a {
+  text-decoration: none;
+  color: black;
+}
+.nav ul li a:hover {
+  text-decoration: underline;
+}
+.favourites {
+  display: flex;
+  margin-bottom: 50px;
+}
+.favourites .fav-actors {
+  vertical-align: top;
+}
+.favourites .fav-actors .actor {
+  margin-bottom: 20px;
+}
+.favourites .fav-actors .actor:last-child {
+  margin-bottom: 0;
+}
+.favourites .fav-actors .actor li .wiki-link {
+  text-decoration: none;
+}
+.favourites .fav-actors .actor li .wiki-link .loved::after {
+  content: ' 💖';
+}
+.favourites .fav-directors .director {
+  margin-bottom: 20px;
+}
+.favourites .fav-directors .director:last-child {
+  margin-bottom: 0;
+}
+.favourites .fav-directors .director li .wiki-link {
+  text-decoration: none;
+}
+.favourites .fav-directors .director li .wiki-link span::after {
+  content: ' 💖';
+}
+.fav-films h3 {
+  margin-bottom: 30px;
+}
+.fav-films .film-list {
+  margin-left: 1em;
+}
+.fav-films .film-list .film-item {
+  list-style-position: outside;
+  margin-bottom: 50px;
+}
+.fav-films .film-list .film-item::marker {
+  font-weight: bold;
+}
+.fav-films .film-list .film-item .title {
+  font-size: 16px;
+  font-weight: bold;
+}
+.fav-films .film-list .film-item .film-info {
+  display: flex;
+}
+.fav-films .film-list .film-item .film-info .img {
+  margin-top: 30px;
+}
+.fav-films .film-list .film-item .film-info .descr {
+  margin-top: 45px;
+  margin-left: 30px;
+}
+.fav-films .film-list .film-item .film-info .descr .actors {
+  margin-top: 30px;
+}
+.fav-films .film-list .film-item .film-info .descr .actors .actor-list {
+  list-style: inside;
+}
+.fav-films .film-list .film-item .film-info .descr .actors .starring {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.fav-films .film-list .film-item .film-info .descr .crew {
+  margin-top: 30px;
+}
+.fav-films .film-list .film-item .film-info .descr .crew .about-crew {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.fav-films .film-list .film-item .film-info .descr .crew .crew-list {
+  list-style: none;
+}
+.fav-films .film-list .film-item .film-info .descr .crew .crew-list .crew-item {
+  display: flex;
+}
+.fav-films .film-list .film-item .film-info .descr .crew .crew-list .crew-item .crew-role {
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+.fav-films .film-list .film-item .film-info .descr .crew .crew-list .crew-item .crew-name {
+  border: 1px solid #ccc;
+  border-left: none;
+  padding: 5px;
+}
+.fav-films .film-list .film-item .film-info .descr .crew .crew-list .crew-item:not(:first-child) .crew-role,
+.fav-films .film-list .film-item .film-info .descr .crew .crew-list .crew-item:not(:first-child) .crew-name {
+  border-top: none;
+}
+.ratings {
+  margin-bottom: 50px;
+}
+.ratings .rating-table {
+  border-collapse: collapse;
+  text-align: left;
+  border: 1px solid #ccc;
+}
+.ratings .rating-table tr {
+  border-bottom: 1px solid #ccc;
+}
+.ratings .rating-table tr:last-child {
+  border-bottom: none;
+}
+.ratings .rating-table tr th,
+.ratings .rating-table tr td {
+  padding: 10px;
+  border-right: 1px solid #ccc;
+}
+.ratings .rating-table tr th:last-child,
+.ratings .rating-table tr td:last-child {
+  border-right: none;
+}
+.contact-me {
+  margin-bottom: 50px;
+}
+.contact-me .contact-form {
+  flex-direction: column;
+  display: flex;
+  margin-top: 20px;
+}
+.contact-me .contact-form input,
+.contact-me .contact-form textarea {
+  margin-bottom: 10px;
+  padding: 5px;
+  outline: none;
+}
+.contact-me .contact-form button {
+  padding: 5px;
+}
