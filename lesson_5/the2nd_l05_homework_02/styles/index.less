@@ -1,0 +1,88 @@
+.main-page {
+
+    .page-title {
+        background-image: url('https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=725&q=80');
+    }
+    
+    .history {
+        margin-bottom: 100px;
+        h3 {
+            margin-bottom: 60px;
+        }
+        p:not(:last-child) {
+            margin-bottom: 15px;
+        }
+    }
+    
+    .favourites {
+        display: flex;
+        // margin-bottom: 100px;
+        .fav-actors {
+            vertical-align: top;
+            h4 {
+                margin-bottom: 60px;
+                font-size: 35px;
+                font-style: italic;
+            }
+            .actor {
+                margin-bottom: 20px;
+                list-style: none;
+                display: flex;
+                .img-link {
+                    img {
+                        height: 170px;
+                    }
+                }
+                &:last-child {
+                    margin-bottom: 0;
+                }
+                li {
+                    margin-left: 50px;
+                    margin-top: 70px;
+                    .wiki-link {
+                        font-style: italic;
+                        font-weight: 500;
+                        text-decoration: none;
+                        .loved::after {
+                            content: ' 💖';
+                        }
+                    }
+                }
+            }
+        }
+        .fav-directors {
+            border-right: 3px dashed @gray;
+            h4 {
+                margin-bottom: 60px;
+                font-size: 35px;
+                font-style: italic;
+            }
+            .director {
+                margin-bottom: 20px;
+                list-style: none;
+                display: flex;
+                &:last-child {
+                    margin-bottom: 0;
+                }
+                .img-link {
+                    img {
+                        height: 170px;
+                    }
+                }
+                li {
+                    margin-left: 50px;
+                    margin-top: 70px;
+                    .wiki-link {
+                        font-style: italic;
+                        font-weight: 500;
+                        text-decoration: none;
+                        span::after {
+                           content: ' 💖'; 
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

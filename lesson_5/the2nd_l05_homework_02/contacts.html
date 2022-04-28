@@ -3,37 +3,55 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./styles.css">
+        <link rel="stylesheet" href="./styles/styles.css">
         <title>Контакты</title>
     </head>
-    <body class="layout-12">
-        <nav class="nav">
-            <a href="index.html"><img src="./img/logo.png" alt="logo" height="60px;"></a>
-            <ul class="layout-06">
-                <li><a href="index.html">Главная</a></li>
-                <li><a href="movies.html">Фильмы</a></li>
-                <li><a href="ratings.html">Рейтинги</a></li>
-                <li><a href="contacts.html">Контакты</a></li>
-            </ul>
+    <body class="contacts">
+        <nav class="nav" id="navbar">
+            <div class="layout-12">
+                <a href="index.html"><img src="./img/logo.png" alt="logo" height="60px;"></a>
+                <ul class="layout-06">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="movies.html">Фильмы</a></li>
+                    <li><a href="ratings.html">Рейтинги</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </div>
         </nav>
         <div class="page-title">
-            <h1>Контакты</h1>
-            <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1500&q=80" alt="Контакты" height="500px">
+            <div class="layout-12">
+                <h1>Контакты</h1>
+            </div>
         </div>
-        <div class="contact-me">
-            <h3 class="contact-title">Напишите мне</h3>
-            <form class="contact-form layout-06">
-                <input name="first_name" type="text" id="first_name" placeholder="Имя">
-                <input name="email" type="email" id="email" placeholder="E-mail">
-                <textarea name="message" id="mesage" cols="30" rows="10" placeholder="Сообщение"></textarea>
-                <button type="submit">Отправить сообщение</button>
-            </form>
-            <!-- <p>Имя: Николай</p>
-            <p>Город: Сочи</p>
-            <span style="color:green">
-                <p>По любым пожеланиям пишите на email:</p>
-            </span>
-            <p>Email: test@example.com</p> -->
+        <div class="layout-12">
+            <div class="contact-me">
+                <h3 class="contact-title">Напишите мне</h3>
+                <form class="contact-form layout-06">
+                    <input name="first_name" type="text" id="first_name" placeholder="Имя">
+                    <input name="email" type="email" id="email" placeholder="E-mail">
+                    <textarea name="message" id="mesage" cols="30" rows="10" placeholder="Сообщение"></textarea>
+                    <button type="submit">Отправить сообщение</button>
+                </form>
+                <!-- <p>Имя: Николай</p>
+                <p>Город: Сочи</p>
+                <span style="color:green">
+                    <p>По любым пожеланиям пишите на email:</p>
+                </span>
+                <p>Email: test@example.com</p> -->
+            </div>
         </div>
     </body>
+
+    <script>
+        var prevScrollpos = window.pageYOffset;
+        window.onscroll = function() {
+        var currentScrollPos = window.pageYOffset;
+        if (prevScrollpos > currentScrollPos) {
+            document.getElementById("navbar").style.top = "0";
+        } else {
+            document.getElementById("navbar").style.top = "-91px";
+        }
+        prevScrollpos = currentScrollPos;
+        }
+    </script>
 </html>

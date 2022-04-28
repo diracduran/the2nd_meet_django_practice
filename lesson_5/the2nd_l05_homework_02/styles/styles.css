@@ -1,0 +1,417 @@
+@font-face {
+  font-family: 'Montserrat';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/montserrat/v24/JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jq6R9aX8.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/montserrat/v24/JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jq5Z9aX8.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/montserrat/v24/JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jq3p6aX8.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: italic;
+  font-weight: 800;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/montserrat/v24/JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jqyR6aX8.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/montserrat/v24/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Ew-.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/montserrat/v24/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtZ6Ew-.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/montserrat/v24/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCu170w-.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/montserrat/v24/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCuM70w-.ttf) format('truetype');
+}
+* {
+  margin: 0px;
+  padding: 0px;
+  vertical-align: top;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+body {
+  font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 100px;
+}
+a {
+  color: #000;
+  text-decoration: none;
+  -webkit-transition: 0.15s;
+  transition: 0.15s;
+}
+a:hover {
+  color: #C74375;
+}
+h3 {
+  font-size: 40px;
+  font-style: italic;
+}
+h4 {
+  font-size: 35px;
+}
+.page-title {
+  margin-top: 90px;
+  height: 300px;
+  margin-bottom: 80px;
+  position: relative;
+  z-index: 1;
+  background-attachment: fixed;
+}
+.page-title h1 {
+  font-weight: bold;
+  font-style: italic;
+  color: white;
+  position: absolute;
+  top: 120px;
+  text-shadow: 2px 2px 15px black;
+  text-align: center;
+  font-size: 45px;
+}
+.layout-12 {
+  width: 1116px;
+  margin: 0px auto;
+}
+.layout-03 {
+  width: 252px;
+}
+.layout-06 {
+  width: 540px;
+}
+.col {
+  margin-right: 36px;
+  display: inline-block;
+}
+.col:last-child {
+  margin-right: 0px;
+}
+.layout-06 .layout-03.col:nth-child(2n) {
+  margin-right: 0px;
+}
+.layout-03.col:nth-child(4n) {
+  margin-right: 0px;
+}
+.layout-06.col:nth-child(2n) {
+  margin-right: 0px;
+}
+.nav {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  -webkit-transition: top 0.3s;
+  transition: top 0.3s;
+  background-color: white;
+  border-bottom: 1px solid black;
+  z-index: 9999;
+  padding: 10px 0px;
+}
+.nav .layout-12 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.nav .layout-12 a img {
+  height: 70px;
+}
+.nav .layout-12 ul {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  list-style: none;
+  margin-top: 20px;
+  margin-top: 25px;
+}
+.nav .layout-12 ul li {
+  font-size: 20px;
+  font-style: italic;
+  font-weight: bold;
+}
+.nav .layout-12 ul li:not(:last-child) {
+  margin-right: 20px;
+}
+.nav .layout-12 ul li a {
+  text-decoration: none;
+  color: black;
+  -webkit-transition: 0.15s;
+  transition: 0.15s;
+}
+.nav .layout-12 ul li a:hover {
+  color: #C74375;
+}
+em {
+  color: #C74375;
+}
+.main-page .page-title {
+  background-image: url('https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=725&q=80');
+}
+.main-page .history {
+  margin-bottom: 100px;
+}
+.main-page .history h3 {
+  margin-bottom: 60px;
+}
+.main-page .history p:not(:last-child) {
+  margin-bottom: 15px;
+}
+.main-page .favourites {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.main-page .favourites .fav-actors {
+  vertical-align: top;
+}
+.main-page .favourites .fav-actors h4 {
+  margin-bottom: 60px;
+  font-size: 35px;
+  font-style: italic;
+}
+.main-page .favourites .fav-actors .actor {
+  margin-bottom: 20px;
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.main-page .favourites .fav-actors .actor .img-link img {
+  height: 170px;
+}
+.main-page .favourites .fav-actors .actor:last-child {
+  margin-bottom: 0;
+}
+.main-page .favourites .fav-actors .actor li {
+  margin-left: 50px;
+  margin-top: 70px;
+}
+.main-page .favourites .fav-actors .actor li .wiki-link {
+  font-style: italic;
+  font-weight: 500;
+  text-decoration: none;
+}
+.main-page .favourites .fav-actors .actor li .wiki-link .loved::after {
+  content: ' 💖';
+}
+.main-page .favourites .fav-directors {
+  border-right: 3px dashed #ccc;
+}
+.main-page .favourites .fav-directors h4 {
+  margin-bottom: 60px;
+  font-size: 35px;
+  font-style: italic;
+}
+.main-page .favourites .fav-directors .director {
+  margin-bottom: 20px;
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.main-page .favourites .fav-directors .director:last-child {
+  margin-bottom: 0;
+}
+.main-page .favourites .fav-directors .director .img-link img {
+  height: 170px;
+}
+.main-page .favourites .fav-directors .director li {
+  margin-left: 50px;
+  margin-top: 70px;
+}
+.main-page .favourites .fav-directors .director li .wiki-link {
+  font-style: italic;
+  font-weight: 500;
+  text-decoration: none;
+}
+.main-page .favourites .fav-directors .director li .wiki-link span::after {
+  content: ' 💖';
+}
+.movies .page-title {
+  background-image: url('https://images.unsplash.com/photo-1440404653325-ab127d49abc1?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1500&q=80');
+}
+.movies .page-title h1 {
+  left: 630px;
+}
+.movies .fav-films h3 {
+  margin-bottom: 60px;
+}
+.movies .fav-films .film-list {
+  margin-left: 2.5em;
+}
+.movies .fav-films .film-list .film-item {
+  list-style-position: outside;
+  margin-bottom: 100px;
+}
+.movies .fav-films .film-list .film-item::marker {
+  font-weight: bold;
+  font-size: 40px;
+}
+.movies .fav-films .film-list .film-item .title {
+  font-style: italic;
+  font-weight: bold;
+}
+.movies .fav-films .film-list .film-item .film-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.movies .fav-films .film-list .film-item .film-info .img {
+  margin-top: 30px;
+}
+.movies .fav-films .film-list .film-item .film-info .descr {
+  margin-top: 30px;
+  margin-left: 30px;
+}
+.movies .fav-films .film-list .film-item .film-info .descr .actors {
+  margin-top: 30px;
+}
+.movies .fav-films .film-list .film-item .film-info .descr .actors .actor-list {
+  list-style: inside;
+}
+.movies .fav-films .film-list .film-item .film-info .descr .actors .starring {
+  font-style: italic;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.movies .fav-films .film-list .film-item .film-info .descr .crew {
+  margin-top: 60px;
+}
+.movies .fav-films .film-list .film-item .film-info .descr .crew .about-crew {
+  font-style: italic;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.movies .fav-films .film-list .film-item .film-info .descr .crew .crew-list {
+  list-style: none;
+}
+.movies .fav-films .film-list .film-item .film-info .descr .crew .crew-list .crew-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.movies .fav-films .film-list .film-item .film-info .descr .crew .crew-list .crew-item .crew-role {
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+.movies .fav-films .film-list .film-item .film-info .descr .crew .crew-list .crew-item .crew-name {
+  border: 1px solid #ccc;
+  border-left: none;
+  padding: 5px;
+}
+.movies .fav-films .film-list .film-item .film-info .descr .crew .crew-list .crew-item:not(:first-child) .crew-role,
+.movies .fav-films .film-list .film-item .film-info .descr .crew .crew-list .crew-item:not(:first-child) .crew-name {
+  border-top: none;
+}
+.ratings-page .page-title {
+  background-image: url('https://images.unsplash.com/photo-1585951237318-9ea5e175b891?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1500&q=80');
+  background-position: 0 -390px;
+}
+.ratings-page .page-title h1 {
+  left: 630px;
+}
+.ratings-page .ratings {
+  margin-bottom: 50px;
+}
+.ratings-page .ratings .rating-table {
+  border-collapse: collapse;
+  text-align: left;
+  border: 1px solid #ccc;
+}
+.ratings-page .ratings .rating-table tr {
+  border-bottom: 1px solid #ccc;
+}
+.ratings-page .ratings .rating-table tr:last-child {
+  border-bottom: none;
+}
+.ratings-page .ratings .rating-table tr th,
+.ratings-page .ratings .rating-table tr td {
+  text-align: center;
+  vertical-align: middle;
+  padding: 20px;
+  border-right: 1px solid #ccc;
+}
+.ratings-page .ratings .rating-table tr th:last-child,
+.ratings-page .ratings .rating-table tr td:last-child {
+  border-right: none;
+}
+.contacts .page-title {
+  background-image: url('https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1500&q=80');
+}
+.contacts .page-title h1 {
+  left: 630px;
+}
+.contacts .contact-me {
+  margin-bottom: 50px;
+}
+.contacts .contact-me .contact-title {
+  margin-bottom: 60px;
+}
+.contacts .contact-me .contact-form {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 20px;
+  width: 100%;
+}
+.contacts .contact-me .contact-form input,
+.contacts .contact-me .contact-form textarea {
+  margin-bottom: 20px;
+  padding: 10px;
+  outline: none;
+  font-size: 20px;
+}
+.contacts .contact-me .contact-form button {
+  border: none;
+  background-color: #ccc;
+  padding: 10px;
+  font-style: italic;
+  font-size: 20px;
+  font-weight: 600;
+  outline: none;
+  -webkit-transition: 0.15s;
+  transition: 0.15s;
+  margin-top: 40px;
+}
+.contacts .contact-me .contact-form button:hover {
+  background-color: #C74375;
+}

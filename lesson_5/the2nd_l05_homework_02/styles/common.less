@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,800&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+    vertical-align: top;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 100px;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+    transition: 0.15s;
+    &:hover {
+        color: @fuchsia_rose;
+    }
+}
+
+h3 {
+    font-size: 40px;
+    font-style: italic;
+}
+
+h4 {
+    font-size: 35px;
+}
+
+.page-title {
+    margin-top: 90px;
+    height: 300px;
+    margin-bottom: 80px;
+    position: relative;
+    z-index: 1;
+    background-attachment: fixed;
+    h1{
+        font-weight: bold;
+        font-style: italic;
+        color: white;
+        position: absolute;
+        top: 120px;
+        text-shadow: 2px 2px 15px black;
+        text-align: center;
+        font-size: 45px;
+    }
+}
+
+.layout-12 {
+    width: 1116px;
+    margin: 0px auto;
+}
+
+.layout-03 {
+    width: 252px;
+}
+
+.layout-06 {
+    width: 540px;
+}
+
+.col {
+    margin-right: 36px;
+    display: inline-block;
+}
+
+.col:last-child {
+    margin-right: 0px;
+}
+
+.layout-06 .layout-03.col:nth-child(2n) {
+    margin-right: 0px;
+}
+
+.layout-03.col:nth-child(4n) {
+    margin-right: 0px;
+}
+
+.layout-06.col:nth-child(2n) {
+    margin-right: 0px;
+}
+
+.nav {
+    position: fixed;
+    top: 0px;
+    width: 100%; 
+    transition: top 0.3s;
+    background-color: white;
+    border-bottom: 1px solid black;
+    z-index: 9999;
+    padding: 10px 0px;
+    .layout-12 {
+        display: flex;
+        justify-content: space-between;
+        a {
+            img {
+                height: 70px;
+            }
+        }
+        ul {
+            display: inline-flex;
+            justify-content: flex-end;
+            list-style: none;
+            margin-top: 20px;
+            margin-top: 25px;
+
+            li {
+                font-size: 20px;
+                font-style: italic;
+                font-weight: bold;
+                &:not(:last-child) {
+                    margin-right: 20px;
+                }
+                a {
+                    text-decoration: none;
+                    color: black;
+                    transition: 0.15s;
+                    &:hover {
+                        color: @fuchsia_rose;
+                    }
+                }
+            }
+        }
+    }
+}
+
+em {
+    color: @fuchsia_rose;
+}

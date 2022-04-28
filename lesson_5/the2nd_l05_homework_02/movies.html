@@ -3,362 +3,380 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./styles.css">
+        <link rel="stylesheet" href="./styles/styles.css">
         <title>Фильмы</title>
     </head>
-    <body class="layout-12">
-        <nav class="nav">
-            <a href="index.html"><img src="./img/logo.png" alt="logo" height="60px;"></a>
-            <ul class="layout-06">
-                <li><a href="index.html">Главная</a></li>
-                <li><a href="movies.html">Фильмы</a></li>
-                <li><a href="ratings.html">Рейтинги</a></li>
-                <li><a href="contacts.html">Контакты</a></li>
-            </ul>
+    <body class="movies">
+        <nav class="nav" id="navbar">
+            <div class="layout-12">
+                <a href="index.html"><img src="./img/logo.png" alt="logo" height="60px;"></a>
+                <ul class="layout-06">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="movies.html">Фильмы</a></li>
+                    <li><a href="ratings.html">Рейтинги</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </div>
         </nav>
         <div class="page-title">
-            <h1>Фильмы</h1>
-            <img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1500&q=80" alt="Фильмы" height="500px">
+            <div class="layout-12">
+                <h1>Фильмы</h1>
+            </div>
         </div>
-        <div class="fav-films">
-            <h3>Топ-5 любимых фильмов</h3>
-            <ol class="film-list">
-                <li class="film-item">
-                    <h4 class="title"><a href="https://www.kinopoisk.ru/film/590286/" target="_blank">Бэтмен (The Batman)</a></h4>
-                    <div class="film-info">
-                        <div class="cover">
-                            <img class="img" height="250px;" src="./img/films/the-batman.webp" alt="Бэтмен (The Batman)">
-                        </div>
-                        <div class="descr">
-                            <div class="plot">
-                                <p>После двух лет поисков правосудия на улицах Готэма для своих сограждан Бэтмен становится олицетворением беспощадного возмездия. Когда в городе происходит серия жестоких нападений на представителей элиты, улики приводят Брюса Уэйна в самые темные закоулки преступного мира, где он встречает Женщину-Кошку, Пингвина, Кармайна Фальконе и Загадочника. Теперь под прицелом оказывается сам Бэтмен, которому предстоит отличить друга от врага и восстановить справедливость во имя Готэма.</p>
+        <div class="layout-12">
+            <div class="fav-films">
+                <h3>Топ-5 любимых фильмов</h3>
+                <ol class="film-list">
+                    <li class="film-item">
+                        <h4 class="title"><a href="https://www.kinopoisk.ru/film/590286/" target="_blank">Бэтмен (The Batman)</a></h4>
+                        <div class="film-info">
+                            <div class="cover">
+                                <img class="img" height="250px;" src="./img/films/the-batman.webp" alt="Бэтмен (The Batman)">
                             </div>
-                            <div class="actors"> 
-                                <div class="starring">В главных ролях</div>
-                                <ul class="actor-list">
-                                    <li class="actor-item">Роберт Паттинсон</li>
-                                    <li class="actor-item">Зои Кравиц</li>
-                                    <li class="actor-item">Пол Дано</li>
-                                    <li class="actor-item">Джеффри Райт</li>
-                                </ul>
-                            </div>
-                            <div class="crew">
-                                <div class="about-crew">О фильме</div>
-                                <ul class="crew-list layout-06">
-                                    <li class="crew-item">
-                                        <div class="crew-role layout-03">
-                                            <span>Режиссер</span>
-                                        </div>
-                                        <div class="crew-name layout-03">
-                                            <span>Мэтт Ривз</span>
-                                        </div>
-                                    </li>
-                                    <li class="crew-item">
-                                        <div class="crew-role layout-03">
-                                            <span>Сценарий</span>
-                                        </div>
-                                        <div class="crew-name layout-03">
-                                            <span>Мэтт Ривз, Питер Крэйг, Билл Фингер</span>
-                                        </div>
-                                    </li>
-                                    <li class="crew-item">
-                                        <div class="crew-role layout-03">
-                                            <span>Продюсер</span>
-                                        </div>
-                                        <div class="crew-name layout-03">
-                                            <span>Дилан Кларк, Мэтт Ривз, Майкл Э. Услан</span>
-                                        </div>
-                                    </li>
-                                    <li class="crew-item">
-                                        <div class="crew-role layout-03">
-                                            <span>Оператор</span>
-                                        </div>
-                                        <div class="crew-name layout-03">
-                                            <span>Грег Фрейзер</span>
-                                        </div>
-                                    </li>
-                                    <li class="crew-item">
-                                        <div class="crew-role layout-03">
-                                            <span>Композитор</span>
-                                        </div>
-                                        <div class="crew-name layout-03">
-                                            <span>Майкл Джаккино</span>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="film-item">
-                    <h4 class="title"><a href="https://www.kinopoisk.ru/film/1322324/" target="_blank">Всё везде и сразу (Everything Everywhere All at Once)</a></h4>
-                    <div class="film-info">
-                        <div class="cover">
-                            <img class="img" height="250px;" src="./img/films/everything-everywhere-all-at-once.webp" alt="Всё везде и сразу (Everything Everywhere All at Once)">
-                        </div>
-                        <div class="descr">
-                            <div class="plot">
-                                <p>Эвелин получает доступ к воспоминаниям, эмоциям и невероятным способностям других версий себя. Теперь она может прожить тысячи жизней и быть кем угодно — известной актрисой, мастером боевых искусств, оперной дивой и даже небесным божеством. Но всем мультивселенным угрожает таинственная сущность, с которой Эвелин предстоит сразиться. Как знать, возможно, заодно она разберётся и с самым страшным злом — своими налогами.</p>
-                            </div>
-                            <div class="actors"> 
-                                <div class="starring">В главных ролях</div>
-                                <ul class="actor-list">
-                                    <li class="actor-item">Мишель Йео</li>
-                                    <li class="actor-item">Джейми Ли Кёртис</li>
-                                    <li class="actor-item">Ке Хюи Куан</li>
-                                    <li class="actor-item">Стефани Сюй</li>
-                                </ul>
-                            </div>
-                            <div class="crew">
-                                <div class="about-crew">О фильме</div>
-                                <ul class="crew-list layout-06">
-                                    <li class="crew-item">
-                                        <div class="crew-role layout-03">
-                                            <span>Режиссер</span>
-                                        </div>
-                                        <div class="crew-name layout-03">
-                                            <span>Дэн Кван, Дэниэл Шайнерт</span>
-                                        </div>
-                                    </li>
-                                    <li class="crew-item">
-                                        <div class="crew-role layout-03">
-                                            <span>Сценарий</span>
-                                        </div>
-                                        <div class="crew-name layout-03">
-                                            <span>Дэн Кван, Дэниэл Шайнерт</span>
-                                        </div>
-                                    </li>
-                                    <li class="crew-item">
-                                        <div class="crew-role layout-03">
-                                            <span>Продюсер</span>
-                                        </div>
-                                        <div class="crew-name layout-03">
-                                            <span>Дэниэл Шайнерт, Эллисон Роуз Картер, Сара Финн</span>
-                                        </div>
-                                    </li>
-                                    <li class="crew-item">
-                                        <div class="crew-role layout-03">
-                                            <span>Оператор</span>
-                                        </div>
-                                        <div class="crew-name layout-03">
-                                            <span>Ларкин Сайпл</span>
-                                        </div>
-                                    </li>
-                                    <li class="crew-item">
-                                        <div class="crew-role layout-03">
-                                            <span>Композитор</span>
-                                        </div>
-                                        <div class="crew-name layout-03">
-                                            <span>Сон Люкс</span>
-                                        </div>
-                                    </li>
-                                </ul>
+                            <div class="descr">
+                                <div class="plot">
+                                    <p>После двух лет поисков правосудия на улицах Готэма для своих сограждан Бэтмен становится олицетворением беспощадного возмездия. Когда в городе происходит серия жестоких нападений на представителей элиты, улики приводят Брюса Уэйна в самые темные закоулки преступного мира, где он встречает Женщину-Кошку, Пингвина, Кармайна Фальконе и Загадочника. Теперь под прицелом оказывается сам Бэтмен, которому предстоит отличить друга от врага и восстановить справедливость во имя Готэма.</p>
+                                </div>
+                                <div class="actors"> 
+                                    <div class="starring">В главных ролях</div>
+                                    <ul class="actor-list">
+                                        <li class="actor-item">Роберт Паттинсон</li>
+                                        <li class="actor-item">Зои Кравиц</li>
+                                        <li class="actor-item">Пол Дано</li>
+                                        <li class="actor-item">Джеффри Райт</li>
+                                    </ul>
+                                </div>
+                                <div class="crew">
+                                    <div class="about-crew">О фильме</div>
+                                    <ul class="crew-list layout-06">
+                                        <li class="crew-item">
+                                            <div class="crew-role layout-03">
+                                                <span>Режиссер</span>
+                                            </div>
+                                            <div class="crew-name layout-03">
+                                                <span>Мэтт Ривз</span>
+                                            </div>
+                                        </li>
+                                        <li class="crew-item">
+                                            <div class="crew-role layout-03">
+                                                <span>Сценарий</span>
+                                            </div>
+                                            <div class="crew-name layout-03">
+                                                <span>Мэтт Ривз, Питер Крэйг, Билл Фингер</span>
+                                            </div>
+                                        </li>
+                                        <li class="crew-item">
+                                            <div class="crew-role layout-03">
+                                                <span>Продюсер</span>
+                                            </div>
+                                            <div class="crew-name layout-03">
+                                                <span>Дилан Кларк, Мэтт Ривз, Майкл Э. Услан</span>
+                                            </div>
+                                        </li>
+                                        <li class="crew-item">
+                                            <div class="crew-role layout-03">
+                                                <span>Оператор</span>
+                                            </div>
+                                            <div class="crew-name layout-03">
+                                                <span>Грег Фрейзер</span>
+                                            </div>
+                                        </li>
+                                        <li class="crew-item">
+                                            <div class="crew-role layout-03">
+                                                <span>Композитор</span>
+                                            </div>
+                                            <div class="crew-name layout-03">
+                                                <span>Майкл Джаккино</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </li>
-                <li class="film-item">
-                    <h4 class="title"><a href="https://www.kinopoisk.ru/film/1355139/" target="_blank">Лулу и Бриггс (Dog)</a></h4>
-                    <div class="film-info">
-                        <div class="cover">
-                            <img class="img" height="250px;" src="./img/films/dog.webp" alt="Лулу и Бриггс (Dog)">
-                        </div>
-                        <div class="descr">
-                            <div class="plot">
-                                <p>Профессиональный военный Джексон Бриггс всеми силами пытается вернуться в строй, но из-за травмы головы получает постоянные отказы. Когда умирает один из его сослуживцев, Бриггсу дают задание: с военной базы в штате Вашингтон доставить на похороны в аризонский Ногалес боевую подругу почившего — нервную бельгийскую овчарку Лулу с целым спектром посттравматических расстройств. Поскольку собака боится летать, сделать это придётся на машине по Тихоокеанскому побережью, и эта поездка будет не самым простым заданием Бриггса.</p>
+                    </li>
+                    <li class="film-item">
+                        <h4 class="title"><a href="https://www.kinopoisk.ru/film/1322324/" target="_blank">Всё везде и сразу (Everything Everywhere All at Once)</a></h4>
+                        <div class="film-info">
+                            <div class="cover">
+                                <img class="img" height="250px;" src="./img/films/everything-everywhere-all-at-once.webp" alt="Всё везде и сразу (Everything Everywhere All at Once)">
                             </div>
-                            <div class="actors"> 
-                                <div class="starring">В главных ролях</div>
-                                <ul class="actor-list">
-                                    <li class="actor-item">Ченнинг Татум</li>
-                                    <li class="actor-item">Джейн Адамс</li>
-                                    <li class="actor-item">Кевин Нэш</li>
-                                    <li class="actor-item">К’Орианка Килчер</li>
-                                </ul>
-                            </div>
-                            <div class="crew">
-                                <div class="about-crew">О фильме</div>
-                                <ul class="crew-list layout-06">
-                                    <li class="crew-item">
-                                        <div class="crew-role layout-03">
-                                            <span>Режиссер</span>
-                                        </div>
-                                        <div class="crew-name layout-03">
-                                            <span>Рид Каролин, Ченнинг Татум</span>
-                                        </div>
-                                    </li>
-                                    <li class="crew-item">
-                                        <div class="crew-role layout-03">
-                                            <span>Сценарий</span>
-                                        </div>
-                                        <div class="crew-name layout-03">
-                                            <span>Рид Каролин</span>
-                                        </div>
-                                    </li>
-                                    <li class="crew-item">
-                                        <div class="crew-role layout-03">
-                                            <span>Продюсер</span>
-                                        </div>
-                                        <div class="crew-name layout-03">
-                                            <span>Грегори Джейкобс, Питер Кирнан, Бетси Дэнбьюри</span>
-                                        </div>
-                                    </li>
-                                    <li class="crew-item">
-                                        <div class="crew-role layout-03">
-                                            <span>Оператор</span>
-                                        </div>
-                                        <div class="crew-name layout-03">
-                                            <span>Ньютон Томас Сигел</span>
-                                        </div>
-                                    </li>
-                                    <li class="crew-item">
-                                        <div class="crew-role layout-03">
-                                            <span>Композитор</span>
-                                        </div>
-                                        <div class="crew-name layout-03">
-                                            <span>Томас Ньюман</span>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="film-item">
-                    <h4 class="title"><a href="https://www.kinopoisk.ru/film/468373/" target="_blank">Анчартед: На картах не значится (Uncharted)</a></h4>
-                    <div class="film-info">
-                        <div class="cover">
-                            <img class="img" height="250px;" src="./img/films/uncharted.webp" alt="Анчартед: На картах не значится (Uncharted)">
-                        </div>
-                        <div class="descr">
-                            <div class="plot">
-                                <p>Два искателя приключений Нейтан Дрейк и Виктор Салливан по прозвищу Салли отправляются на поиски величайшего сокровища мира. Кроме того, они надеются найти улики, которые приведут их к давно потерянному брату Нейтана.</p>
-                            </div>
-                            <div class="actors"> 
-                                <div class="starring">В главных ролях</div>
-                                <ul class="actor-list">
-                                    <li class="actor-item">Том Холланд</li>
-                                    <li class="actor-item">Марк Уолберг</li>
-                                    <li class="actor-item">Антонио Бандерас</li>
-                                    <li class="actor-item">София Тейлор Али</li>
-                                </ul>
-                            </div>
-                            <div class="crew">
-                                <div class="about-crew">О фильме</div>
-                                <ul class="crew-list layout-06">
-                                    <li class="crew-item">
-                                        <div class="crew-role layout-03">
-                                            <span>Режиссер</span>
-                                        </div>
-                                        <div class="crew-name layout-03">
-                                            <span>Рубен Фляйшер</span>
-                                        </div>
-                                    </li>
-                                    <li class="crew-item">
-                                        <div class="crew-role layout-03">
-                                            <span>Сценарий</span>
-                                        </div>
-                                        <div class="crew-name layout-03">
-                                            <span>Артур Маркам, Мэтт Холлоуэй, Рэйф Джадкинс</span>
-                                        </div>
-                                    </li>
-                                    <li class="crew-item">
-                                        <div class="crew-role layout-03">
-                                            <span>Продюсер</span>
-                                        </div>
-                                        <div class="crew-name layout-03">
-                                            <span>Чарльз Ровен, Ави Арад, Алекс Гартнер</span>
-                                        </div>
-                                    </li>
-                                    <li class="crew-item">
-                                        <div class="crew-role layout-03">
-                                            <span>Оператор</span>
-                                        </div>
-                                        <div class="crew-name layout-03">
-                                            <span>Чон Джон-хунр</span>
-                                        </div>
-                                    </li>
-                                    <li class="crew-item">
-                                        <div class="crew-role layout-03">
-                                            <span>Композитор</span>
-                                        </div>
-                                        <div class="crew-name layout-03">
-                                            <span>Рамин Джавади</span>
-                                        </div>
-                                    </li>
-                                </ul>
+                            <div class="descr">
+                                <div class="plot">
+                                    <p>Эвелин получает доступ к воспоминаниям, эмоциям и невероятным способностям других версий себя. Теперь она может прожить тысячи жизней и быть кем угодно — известной актрисой, мастером боевых искусств, оперной дивой и даже небесным божеством. Но всем мультивселенным угрожает таинственная сущность, с которой Эвелин предстоит сразиться. Как знать, возможно, заодно она разберётся и с самым страшным злом — своими налогами.</p>
+                                </div>
+                                <div class="actors"> 
+                                    <div class="starring">В главных ролях</div>
+                                    <ul class="actor-list">
+                                        <li class="actor-item">Мишель Йео</li>
+                                        <li class="actor-item">Джейми Ли Кёртис</li>
+                                        <li class="actor-item">Ке Хюи Куан</li>
+                                        <li class="actor-item">Стефани Сюй</li>
+                                    </ul>
+                                </div>
+                                <div class="crew">
+                                    <div class="about-crew">О фильме</div>
+                                    <ul class="crew-list layout-06">
+                                        <li class="crew-item">
+                                            <div class="crew-role layout-03">
+                                                <span>Режиссер</span>
+                                            </div>
+                                            <div class="crew-name layout-03">
+                                                <span>Дэн Кван, Дэниэл Шайнерт</span>
+                                            </div>
+                                        </li>
+                                        <li class="crew-item">
+                                            <div class="crew-role layout-03">
+                                                <span>Сценарий</span>
+                                            </div>
+                                            <div class="crew-name layout-03">
+                                                <span>Дэн Кван, Дэниэл Шайнерт</span>
+                                            </div>
+                                        </li>
+                                        <li class="crew-item">
+                                            <div class="crew-role layout-03">
+                                                <span>Продюсер</span>
+                                            </div>
+                                            <div class="crew-name layout-03">
+                                                <span>Дэниэл Шайнерт, Эллисон Роуз Картер, Сара Финн</span>
+                                            </div>
+                                        </li>
+                                        <li class="crew-item">
+                                            <div class="crew-role layout-03">
+                                                <span>Оператор</span>
+                                            </div>
+                                            <div class="crew-name layout-03">
+                                                <span>Ларкин Сайпл</span>
+                                            </div>
+                                        </li>
+                                        <li class="crew-item">
+                                            <div class="crew-role layout-03">
+                                                <span>Композитор</span>
+                                            </div>
+                                            <div class="crew-name layout-03">
+                                                <span>Сон Люкс</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </li>
-                <li class="film-item">
-                    <h4 class="title"><a href="https://www.kinopoisk.ru/film/843772/" target="_blank">Фантастические твари: Тайны Дамблдора (Fantastic Beasts: The Secrets of Dumbledore)</a></h4>
-                    <div class="film-info">
-                        <div class="cover">
-                            <img class="img" height="250px;" src="./img/films/fantastic-beasts-the-secret-og-dumbledore.webp" alt="Фантастические твари: Тайны Дамблдора (Fantastic Beasts: The Secrets of Dumbledore)">
+                    </li>
+                    <li class="film-item">
+                        <h4 class="title"><a href="https://www.kinopoisk.ru/film/1355139/" target="_blank">Лулу и Бриггс (Dog)</a></h4>
+                        <div class="film-info">
+                            <div class="cover">
+                                <img class="img" height="250px;" src="./img/films/dog.webp" alt="Лулу и Бриггс (Dog)">
+                            </div>
+                            <div class="descr">
+                                <div class="plot">
+                                    <p>Профессиональный военный Джексон Бриггс всеми силами пытается вернуться в строй, но из-за травмы головы получает постоянные отказы. Когда умирает один из его сослуживцев, Бриггсу дают задание: с военной базы в штате Вашингтон доставить на похороны в аризонский Ногалес боевую подругу почившего — нервную бельгийскую овчарку Лулу с целым спектром посттравматических расстройств. Поскольку собака боится летать, сделать это придётся на машине по Тихоокеанскому побережью, и эта поездка будет не самым простым заданием Бриггса.</p>
+                                </div>
+                                <div class="actors"> 
+                                    <div class="starring">В главных ролях</div>
+                                    <ul class="actor-list">
+                                        <li class="actor-item">Ченнинг Татум</li>
+                                        <li class="actor-item">Джейн Адамс</li>
+                                        <li class="actor-item">Кевин Нэш</li>
+                                        <li class="actor-item">К’Орианка Килчер</li>
+                                    </ul>
+                                </div>
+                                <div class="crew">
+                                    <div class="about-crew">О фильме</div>
+                                    <ul class="crew-list layout-06">
+                                        <li class="crew-item">
+                                            <div class="crew-role layout-03">
+                                                <span>Режиссер</span>
+                                            </div>
+                                            <div class="crew-name layout-03">
+                                                <span>Рид Каролин, Ченнинг Татум</span>
+                                            </div>
+                                        </li>
+                                        <li class="crew-item">
+                                            <div class="crew-role layout-03">
+                                                <span>Сценарий</span>
+                                            </div>
+                                            <div class="crew-name layout-03">
+                                                <span>Рид Каролин</span>
+                                            </div>
+                                        </li>
+                                        <li class="crew-item">
+                                            <div class="crew-role layout-03">
+                                                <span>Продюсер</span>
+                                            </div>
+                                            <div class="crew-name layout-03">
+                                                <span>Грегори Джейкобс, Питер Кирнан, Бетси Дэнбьюри</span>
+                                            </div>
+                                        </li>
+                                        <li class="crew-item">
+                                            <div class="crew-role layout-03">
+                                                <span>Оператор</span>
+                                            </div>
+                                            <div class="crew-name layout-03">
+                                                <span>Ньютон Томас Сигел</span>
+                                            </div>
+                                        </li>
+                                        <li class="crew-item">
+                                            <div class="crew-role layout-03">
+                                                <span>Композитор</span>
+                                            </div>
+                                            <div class="crew-name layout-03">
+                                                <span>Томас Ньюман</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-                        <div class="descr">
-                            <div class="plot">
-                                <p>Профессор Альбус Дамблдор узнает, что могущественный тёмный волшебник Геллерт Грин-де-Вальд планирует захватить власть над миром. Понимая, что не сможет остановить его в одиночку, Дамблдор просит магозоолога Ньюта Саламандера возглавить команду выдающихся волшебников и одного отважного магла-пекаря. Им предстоят невероятно опасные приключения, встреча со старыми и укрощение новых магических существ и борьба со сторонниками Грин-де-Вальда, которых становится все больше.</p>
+                    </li>
+                    <li class="film-item">
+                        <h4 class="title"><a href="https://www.kinopoisk.ru/film/468373/" target="_blank">Анчартед: На картах не значится (Uncharted)</a></h4>
+                        <div class="film-info">
+                            <div class="cover">
+                                <img class="img" height="250px;" src="./img/films/uncharted.webp" alt="Анчартед: На картах не значится (Uncharted)">
                             </div>
-                            <div class="actors"> 
-                                <div class="starring">В главных ролях</div>
-                                <ul class="actor-list">
-                                    <li class="actor-item">Эдди Редмэйн</li>
-                                    <li class="actor-item">Джуд Лоу</li>
-                                    <li class="actor-item">Эзра Миллер</li>
-                                    <li class="actor-item">Дэн Фоглер</li>
-                                </ul>
-                            </div>
-                            <div class="crew">
-                                <div class="about-crew">О фильме</div>
-                                <ul class="crew-list layout-06">
-                                    <li class="crew-item">
-                                        <div class="crew-role layout-03">
-                                            <span>Режиссер</span>
-                                        </div>
-                                        <div class="crew-name layout-03">
-                                            <span>Дэвид Йейтс</span>
-                                        </div>
-                                    </li>
-                                    <li class="crew-item">
-                                        <div class="crew-role layout-03">
-                                            <span>Сценарий</span>
-                                        </div>
-                                        <div class="crew-name layout-03">
-                                            <span>Стивен Кловз, Дж.К. Роулинг</span>
-                                        </div>
-                                    </li>
-                                    <li class="crew-item">
-                                        <div class="crew-role layout-03">
-                                            <span>Продюсер</span>
-                                        </div>
-                                        <div class="crew-name layout-03">
-                                            <span>Нил Блэр, Дэнни Коэн, Дэвид Хейман</span>
-                                        </div>
-                                    </li>
-                                    <li class="crew-item">
-                                        <div class="crew-role layout-03">
-                                            <span>Оператор</span>
-                                        </div>
-                                        <div class="crew-name layout-03">
-                                            <span>Джордж Ричмонд</span>
-                                        </div>
-                                    </li>
-                                    <li class="crew-item">
-                                        <div class="crew-role layout-03">
-                                            <span>Композитор</span>
-                                        </div>
-                                        <div class="crew-name layout-03">
-                                            <span>Джеймс Ньютон Ховард</span>
-                                        </div>
-                                    </li>
-                                </ul>
+                            <div class="descr">
+                                <div class="plot">
+                                    <p>Два искателя приключений Нейтан Дрейк и Виктор Салливан по прозвищу Салли отправляются на поиски величайшего сокровища мира. Кроме того, они надеются найти улики, которые приведут их к давно потерянному брату Нейтана.</p>
+                                </div>
+                                <div class="actors"> 
+                                    <div class="starring">В главных ролях</div>
+                                    <ul class="actor-list">
+                                        <li class="actor-item">Том Холланд</li>
+                                        <li class="actor-item">Марк Уолберг</li>
+                                        <li class="actor-item">Антонио Бандерас</li>
+                                        <li class="actor-item">София Тейлор Али</li>
+                                    </ul>
+                                </div>
+                                <div class="crew">
+                                    <div class="about-crew">О фильме</div>
+                                    <ul class="crew-list layout-06">
+                                        <li class="crew-item">
+                                            <div class="crew-role layout-03">
+                                                <span>Режиссер</span>
+                                            </div>
+                                            <div class="crew-name layout-03">
+                                                <span>Рубен Фляйшер</span>
+                                            </div>
+                                        </li>
+                                        <li class="crew-item">
+                                            <div class="crew-role layout-03">
+                                                <span>Сценарий</span>
+                                            </div>
+                                            <div class="crew-name layout-03">
+                                                <span>Артур Маркам, Мэтт Холлоуэй, Рэйф Джадкинс</span>
+                                            </div>
+                                        </li>
+                                        <li class="crew-item">
+                                            <div class="crew-role layout-03">
+                                                <span>Продюсер</span>
+                                            </div>
+                                            <div class="crew-name layout-03">
+                                                <span>Чарльз Ровен, Ави Арад, Алекс Гартнер</span>
+                                            </div>
+                                        </li>
+                                        <li class="crew-item">
+                                            <div class="crew-role layout-03">
+                                                <span>Оператор</span>
+                                            </div>
+                                            <div class="crew-name layout-03">
+                                                <span>Чон Джон-хунр</span>
+                                            </div>
+                                        </li>
+                                        <li class="crew-item">
+                                            <div class="crew-role layout-03">
+                                                <span>Композитор</span>
+                                            </div>
+                                            <div class="crew-name layout-03">
+                                                <span>Рамин Джавади</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </li>
-            </ol>
+                    </li>
+                    <li class="film-item">
+                        <h4 class="title"><a href="https://www.kinopoisk.ru/film/843772/" target="_blank">Фантастические твари: Тайны Дамблдора (Fantastic Beasts: The Secrets of Dumbledore)</a></h4>
+                        <div class="film-info">
+                            <div class="cover">
+                                <img class="img" height="250px;" src="./img/films/fantastic-beasts-the-secret-og-dumbledore.webp" alt="Фантастические твари: Тайны Дамблдора (Fantastic Beasts: The Secrets of Dumbledore)">
+                            </div>
+                            <div class="descr">
+                                <div class="plot">
+                                    <p>Профессор Альбус Дамблдор узнает, что могущественный тёмный волшебник Геллерт Грин-де-Вальд планирует захватить власть над миром. Понимая, что не сможет остановить его в одиночку, Дамблдор просит магозоолога Ньюта Саламандера возглавить команду выдающихся волшебников и одного отважного магла-пекаря. Им предстоят невероятно опасные приключения, встреча со старыми и укрощение новых магических существ и борьба со сторонниками Грин-де-Вальда, которых становится все больше.</p>
+                                </div>
+                                <div class="actors"> 
+                                    <div class="starring">В главных ролях</div>
+                                    <ul class="actor-list">
+                                        <li class="actor-item">Эдди Редмэйн</li>
+                                        <li class="actor-item">Джуд Лоу</li>
+                                        <li class="actor-item">Эзра Миллер</li>
+                                        <li class="actor-item">Дэн Фоглер</li>
+                                    </ul>
+                                </div>
+                                <div class="crew">
+                                    <div class="about-crew">О фильме</div>
+                                    <ul class="crew-list layout-06">
+                                        <li class="crew-item">
+                                            <div class="crew-role layout-03">
+                                                <span>Режиссер</span>
+                                            </div>
+                                            <div class="crew-name layout-03">
+                                                <span>Дэвид Йейтс</span>
+                                            </div>
+                                        </li>
+                                        <li class="crew-item">
+                                            <div class="crew-role layout-03">
+                                                <span>Сценарий</span>
+                                            </div>
+                                            <div class="crew-name layout-03">
+                                                <span>Стивен Кловз, Дж.К. Роулинг</span>
+                                            </div>
+                                        </li>
+                                        <li class="crew-item">
+                                            <div class="crew-role layout-03">
+                                                <span>Продюсер</span>
+                                            </div>
+                                            <div class="crew-name layout-03">
+                                                <span>Нил Блэр, Дэнни Коэн, Дэвид Хейман</span>
+                                            </div>
+                                        </li>
+                                        <li class="crew-item">
+                                            <div class="crew-role layout-03">
+                                                <span>Оператор</span>
+                                            </div>
+                                            <div class="crew-name layout-03">
+                                                <span>Джордж Ричмонд</span>
+                                            </div>
+                                        </li>
+                                        <li class="crew-item">
+                                            <div class="crew-role layout-03">
+                                                <span>Композитор</span>
+                                            </div>
+                                            <div class="crew-name layout-03">
+                                                <span>Джеймс Ньютон Ховард</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ol>
+            </div>
         </div>
     </body>
+
+    <script>
+        var prevScrollpos = window.pageYOffset;
+        window.onscroll = function() {
+        var currentScrollPos = window.pageYOffset;
+        if (prevScrollpos > currentScrollPos) {
+            document.getElementById("navbar").style.top = "0";
+        } else {
+            document.getElementById("navbar").style.top = "-91px";
+        }
+        prevScrollpos = currentScrollPos;
+        }
+    </script>
 </html>
