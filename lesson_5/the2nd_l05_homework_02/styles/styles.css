@@ -179,9 +179,6 @@ h4 {
 em {
   color: #C74375;
 }
-.main-page .page-title {
-  background-image: url('https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=725&q=80');
-}
 .main-page .history {
   margin-bottom: 100px;
 }
@@ -229,9 +226,6 @@ em {
 .main-page .favourites .fav-actors .actor li .wiki-link .loved::after {
   content: ' 💖';
 }
-.main-page .favourites .fav-directors {
-  border-right: 3px dashed #ccc;
-}
 .main-page .favourites .fav-directors h4 {
   margin-bottom: 60px;
   font-size: 35px;
@@ -261,12 +255,6 @@ em {
 }
 .main-page .favourites .fav-directors .director li .wiki-link span::after {
   content: ' 💖';
-}
-.movies .page-title {
-  background-image: url('https://images.unsplash.com/photo-1440404653325-ab127d49abc1?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1500&q=80');
-}
-.movies .page-title h1 {
-  left: 630px;
 }
 .movies .fav-films h3 {
   margin-bottom: 60px;
@@ -338,13 +326,6 @@ em {
 .movies .fav-films .film-list .film-item .film-info .descr .crew .crew-list .crew-item:not(:first-child) .crew-name {
   border-top: none;
 }
-.ratings-page .page-title {
-  background-image: url('https://images.unsplash.com/photo-1585951237318-9ea5e175b891?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1500&q=80');
-  background-position: 0 -390px;
-}
-.ratings-page .page-title h1 {
-  left: 630px;
-}
 .ratings-page .ratings {
   margin-bottom: 50px;
 }
@@ -370,12 +351,6 @@ em {
 .ratings-page .ratings .rating-table tr td:last-child {
   border-right: none;
 }
-.contacts .page-title {
-  background-image: url('https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1500&q=80');
-}
-.contacts .page-title h1 {
-  left: 630px;
-}
 .contacts .contact-me {
   margin-bottom: 50px;
 }
@@ -399,19 +374,4 @@ em {
   padding: 10px;
   outline: none;
   font-size: 20px;
-}
-.contacts .contact-me .contact-form button {
-  border: none;
-  background-color: #ccc;
-  padding: 10px;
-  font-style: italic;
-  font-size: 20px;
-  font-weight: 600;
-  outline: none;
-  -webkit-transition: 0.15s;
-  transition: 0.15s;
-  margin-top: 40px;
-}
-.contacts .contact-me .contact-form button:hover {
-  background-color: #C74375;
 }
