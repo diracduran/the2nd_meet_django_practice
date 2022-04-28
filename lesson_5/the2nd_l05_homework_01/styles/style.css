@@ -1,0 +1,33 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  vertical-align: top;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.layout-12 {
+  width: 1116px;
+  margin: 0px auto;
+}
+.layout-03 {
+  width: 252px;
+}
+.layout-06 {
+  width: 540px;
+}
+.col {
+  margin-right: 36px;
+  display: inline-block;
+}
+.col:last-child {
+  margin-right: 0px;
+}
+.layout-06 .layout-03.col:nth-child(2n) {
+  margin-right: 0px;
+}
+.layout-03.col:nth-child(4n) {
+  margin-right: 0px;
+}
+.layout-06.col:nth-child(2n) {
+  margin-right: 0px;
+}
