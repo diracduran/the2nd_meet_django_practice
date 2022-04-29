@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
+
 * {
     margin: 0px;
     padding: 0px;
@@ -5,6 +7,41 @@
     box-sizing: border-box;
 }
 
+body {
+    background: black;
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    font-style: italic;
+}
+
+h3 {
+    font-size: 35px;
+    font-weight: 400;
+}
+
+a {
+    text-decoration: none;
+    color: magenta;
+    transition: 0.15s;
+    &:hover {
+        color: white;
+        text-shadow: -0.5px -0.5px 0 lightgreen, 0.5px 0.5px 0 magenta;
+    }
+}
+
+abbr {
+    text-decoration: none;
+}
+
+p:not(:last-child) {
+    margin-bottom: 30px;
+}
+
+ul {
+    list-style: none;
+}
 
 .layout-12 {
     width: 1116px;
@@ -17,6 +54,10 @@
 
 .layout-06 {
     width: 540px;
+}
+
+.layout-09 {
+    width: 792px;
 }
 
 .col {
@@ -32,7 +73,7 @@
     margin-right: 0px;
 }
 
-.layout-03.col:nth-child(4n) {
+.layout-03.col:nth-child(3n) {
     margin-right: 0px;
 }
 

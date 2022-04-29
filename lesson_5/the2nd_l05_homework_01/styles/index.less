@@ -1,17 +1,168 @@
+.glitch-frames (@n: 20, @index: 0) when (@index <= @n) {
+    @keyframeSel: percentage(@index/@n);
+    @rand1: unit(round(`Math.random()*150`),px);
+    @rand2: unit(round(`Math.random()*150`), px);
+    @{keyframeSel} {
+      clip: rect(@rand1, 9999px, @rand2, 0);
+    }
+    .glitch-frames(@n, (@index + 1));
+}
+  
+@keyframes glitch-anim {
+    .glitch-frames(24);
+}
+  
+  @keyframes glitch-anim-2 {
+    .glitch-frames(30,2);
+}
+
 #css-zen-garden {
     .page-wrapper {
-        .intro {
-            header {
-
+        header[role='banner'] {
+            font-style: italic;
+            width: 100%;
+            background: black;
+            .layout-12 {
+                .banner {
+                    text-align: center;
+                    height: 100%;
+                    .glitch {
+                        @offset1: 2px;
+                        @offset2: -2px;
+                        @highlight1: magenta;
+                        color: white;
+                        font-size: 150px;
+                        position: relative;
+                        display: inline-block;
+                        &::before,
+                        &::after  {
+                            content: attr(data-text);
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            background: black;
+                        }
+                        
+                        &::before {
+                            left: @offset1;
+                            text-shadow: -2px 0 @highlight1;
+                            clip: rect(24px, 550px, 90px, 0);
+                            animation: glitch-anim-2 3s infinite linear alternate-reverse;
+                        }
+                        
+                        &::after {
+                            left: @offset2;
+                            text-shadow: -2px 0 lightgreen;
+                            clip: rect(85px, 550px, 140px, 0);
+                            animation: glitch-anim 2.5s infinite linear alternate-reverse;
+                        }
+                    }
+                    .subtitle {
+                        font-weight: 100;
+                        font-size: .8vw;
+                        color: rgba(165, 141, 141, .6);
+                        text-transform: uppercase;
+                        letter-spacing: 1em;
+                        text-align: center;
+                    }
+                }
             }
-
+        }
+        
+    }
+    .top {
+        margin-top: 100px;
+        margin-bottom: 100px;
+        display: flex;
+        justify-content: space-between;
+        .content-wrapper {
             .summary {
-
+                text-align: center;
+                font-style: italic;
+                margin-bottom: 100px;
+                border: 1px dashed rgba(255, 255, 255, 0.1);
+                padding: 20px;
             }
             
             .preamble {
+                margin-bottom: 100px;
+                display: flex;
+                flex-direction: row-reverse;
+                h3 {
+                    transform: rotate(90deg);
+                    height: 225px;
+                    text-shadow: -1px -1px 0 lightgreen, 1px 1px 0 magenta;
+                }
+            }
 
+            .explanation {
+                margin-bottom: 100px;
+                display: flex;
+                flex-direction: row;
+                h3 {
+                    transform: rotate(-90deg);
+                    width: 575px;
+                    height: 225px;
+                    text-shadow: -1px -1px 0 lightgreen, 1px 1px 0 magenta;
+                }
+            }
+
+            .participation {
+                margin-bottom: 100px;
+                display: flex;
+                flex-direction: row-reverse;
+                h3 {
+                    transform: rotate(90deg);
+                    height: 190px;
+                    text-shadow: -1px -1px 0 lightgreen, 1px 1px 0 magenta;
+                }
+            }
+
+            .benefits {
+                margin-bottom: 100px;
+                display: flex;
+                flex-direction: row;
+                h3 {
+                    transform: rotate(-90deg);
+                    height: 125px;
+                    text-shadow: -1px -1px 0 lightgreen, 1px 1px 0 magenta;
+                }
+            }
+
+            .requirements {
+                margin-bottom: 100px;
+                display: flex;
+                flex-direction: row-reverse;
+                h3 {
+                    transform: rotate(90deg);
+                    height: 200px;
+                    text-shadow: -1px -1px 0 lightgreen, 1px 1px 0 magenta;
+                }
             }
         }
     }
+
+    .bottom {
+        .sidebar {
+            margin-bottom: 100px;
+            .wrapper {
+                .design-selection,
+                .design-archives {
+                    margin-right: 175px;
+                }
+            }
+        }
+        footer {
+            margin-bottom: 100px;
+            display: flex;
+            justify-content: space-around;        
+            a {
+                font-size: 35px;
+                font-weight: 500;
+            }
+        }
+    }
+
 }
