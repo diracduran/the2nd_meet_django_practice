@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>TodoIT App | Task Edit</title>
+		<link rel="stylesheet" href="./styles/vapor/bootstrap.min.css">
+	</head>
+	<body>
+		<!-- Navbar -->
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">
+					<a href="start_template_index.html">
+						<img src="./img/test_logo.png" alt="test_logo.png" height="60px">
+					</a>
+				</a>
+				<div class="collapse navbar-collapse" id="navbarColor02">
+					<ul class="navbar-nav me-auto">
+						<li class="nav-item">
+							<a class="nav-link active" href="start_template_index.html">Home
+							<span class="visually-hidden">(current)</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="start_template_profile.html">Profile</a>
+						</li>
+					</ul>
+					<form class="d-flex">
+						<span class="navbar-text align-self-center mx-3" style="margin-left: 0;">@username</span>
+						<button class="btn btn-secondary my-2 my-sm-0" type="submit"><a class="text-white text-decoration-none" href="start_template_login.html">Logout</a></button>
+					</form>
+				</div>
+			</div>
+		</nav>
+		<!-- End Navbar -->
+		<div class="container" id="main">
+			<!-- Notifications -->
+			<div class="alert alert-dismissible alert-danger" id="notification-error">
+				<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+				<strong>Notification</strong> An error was accured! (error message)</a>
+			</div>
+			<!-- End Notifications -->
+
+			<!-- Header -->
+			<div class="my-5 mx-auto" id="header">
+				<p class="text-center">Header</p>
+				<img class="img-fluid" src="https://images.unsplash.com/photo-1569098644584-210bcd375b59?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="todos_img">
+			</div>
+			<!-- End Header -->
+
+			<!-- Task Edit Form -->
+			<div class="my-5" id="task-form-block">
+				<p class="text-center">Task Edit Form</p>
+				<form action="" id="task-block">
+					<div class="form-group row mb-3">
+						<label for="title" class="col-sm-2 col-form-label">Title</label>
+						<div class="col-sm-10">
+							<input class="form-control" type="text" name="title" id="title" placeholder="Title" required>
+						</div>
+					</div>
+					<div class="form-group row mb-3">
+						<label for="priority" class="col-sm-2 col-form-label">Priority</label>
+						<div class="col-sm-10">
+							<select name="priority" id="priority" class="form-select">
+								<option value="no priority" selected>No priority</option>
+								<option value="low">Low</option>
+								<option value="medium">Medium</option>
+								<option value="high">High</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group row mb-3">
+						<label for="description" class="col-sm-2 col-form-label">Description</label>
+						<div class="col-sm-10">
+							<textarea class="form-control" name="description" id="description" cols="30" rows="10" placeholder="Task Description"></textarea>
+						</div>
+					</div>
+					<div class="d-flex justify-content-center">
+						<button class="btn btn-outline-primary mx-3" style="margin-left: 0;" type="submit">edit</button>
+						
+						<button class="btn btn-danger">
+							<a class="text-white text-decoration-none" href="start_template_index.html">cancel</a>
+						</button>
+					</div>
+						
+				</form>
+			</div>
+			<!-- End Task Form -->
+
+		</div>
+		<!-- Footer -->
+		<div class="container mt-5 mb-3 text-center" id="footer">
+			<p>Footer</p>
+			<div class="foot">
+				TodoIT app  &copy; 2020-2021 by <a class="text-decoration-none" href="#">@n13tech</a>
+			</div>
+		</div>
+		<!-- End Footer -->
+	</body>
+</html>

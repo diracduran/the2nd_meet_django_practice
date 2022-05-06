@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>TodoIT App | Profile</title>
+		<link rel="stylesheet" href="./styles/vapor/bootstrap.min.css">
+	</head>
+	<body>
+		<!-- Navbar -->
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">
+					<a href="start_template_index.html">
+						<img src="./img/test_logo.png" alt="test_logo.png" height="60px">
+					</a>
+				</a>
+				<div class="collapse navbar-collapse" id="navbarColor02">
+					<ul class="navbar-nav me-auto">
+						<li class="nav-item">
+							<a class="nav-link active" href="start_template_index.html">Home
+							<span class="visually-hidden">(current)</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="start_template_profile.html">Profile</a>
+						</li>
+					</ul>
+					<form class="d-flex">
+						<span class="navbar-text align-self-center mx-3" style="margin-left: 0;">@username</span>
+						<button class="btn btn-secondary my-2 my-sm-0" type="submit"><a class="text-white text-decoration-none" href="start_template_login.html">Logout</a></button>
+					</form>
+				</div>
+			</div>
+		</nav>
+		<!-- End Navbar -->
+		<div class="container" id="main">
+
+			<!-- Notifications -->
+			<div class="alert alert-dismissible alert-success" id="notification">
+				<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+				<strong>Notification</strong> Welcome, to todos app <a href="#" class="alert-link">@username</a>!
+			</div>
+			<!-- End Notifications -->
+
+			<!-- Header -->
+			<div class="my-5 mx-auto" id="header">
+				<p class="text-center">Header</p>
+				<img class="img-fluid" src="https://images.unsplash.com/photo-1569098644584-210bcd375b59?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="todos_img">
+			</div>
+			<!-- End Header -->
+
+			<!-- Profile -->
+			<div class="col-6 mx-auto" id="profile">
+				<p class="text-center">Profile</p>
+				<div class="profile-block">
+					<ul class="list-unstyled list-group">
+						<li class="d-flex justify-content-between bg-dark p-2 list-group-item align-items-center">
+							<div class="col-3">Username</div>
+							<div class="col-3">@username</div>
+						</li>
+						<li class="d-flex justify-content-between bg-dark p-2 list-group-item align-items-center">
+							<div class="col-3">Full Name</div>
+							<div class="col-3">Name Lastname</div>
+						</li>
+						<li class="d-flex justify-content-between bg-dark p-2 list-group-item align-items-center">
+							<div class="col-3">Email</div>
+							<div class="col-3">username@test.com</div>
+							
+						</li>
+						<li class="d-flex justify-content-between bg-dark p-2 list-group-item align-items-center">
+							<div class="col-3">Registered at</div>
+							<div class="col-3">01.03.2020</div>
+						</li>
+						<li class="d-flex justify-content-between bg-dark p-2 list-group-item align-items-center">
+							Active Tasks <span class="badge bg-info rounded-pill">4</div>
+						</li>
+						<li class="d-flex justify-content-between bg-dark p-2 list-group-item">
+							Completed Tasks <span class="badge bg-primary rounded-pill">4</div>
+						</li>
+					</ul>
+				</div>
+				
+			</div>
+			<!-- End Profile -->
+
+		</div>
+		<!-- Footer -->
+		<div class="container mt-5 mb-3 text-center" id="footer">
+			<p>Footer</p>
+			<div class="foot">
+				TodoIT app  &copy; 2020-2021 by <a class="text-decoration-none" href="#">@n13tech</a>
+			</div>
+		</div>
+		<!-- End Footer -->
+	</body>
+</html>
