@@ -1,0 +1,30 @@
+27  cd lesson_7/the2nd_l07_01_practice
+28  winpty C:/sqlite/sqlite3
+
+$ winpty C:/sqlite/sqlite3
+SQLite version 3.38.5 2022-05-06 15:25:27
+Enter ".help" for usage hints.
+Connected to a transient in-memory database.
+Use ".open FILENAME" to reopen on a persistent database.
+sqlite> .open cars.db
+sqlite> CREATE TABLE auto (brand TEXT, model TEXT, year INTEGER, value REAL);
+sqlite> CREATE TABLE truck (brand TEXT, model TEXT, year INTEGER, value REAL);
+sqlite> .tables
+auto   truck
+sqlite> INSERT INTO auto (brand, model, year, value) VALUES ("Ford", "Focus 3", 2011, 1.6), ("Mazda", "3", 2008, 2.0), ("BMW", "3.2.0", 2015, 2.0);
+sqlite> INSERT INTO truck (brand, model, year, value) VALUES ("Volvo", "VN", 2002, 12.0), ("Mack", "Programm", 2012, 16.0), ("Scania", "R 730", 2010, 16.4), ("Volvo", "FH16", 2009, 16.0);
+
+sqlite> SELECT brand,model,value FROM auto WHERE year > 2010;
+Ford|Focus 3|1.6
+BMW|3.2.0|2.0
+
+вот тут у меня не получилось...
+sqlite> SELECT model,year,value FROM truck WHERE model = "Volvo";
+... хотя
+sqlite> SELECT * FROM truck;
+Volvo|VN|2002|12.0
+Mack|Programm|2012|16.0
+Scania|R 730|2010|16.4
+Volvo|FH16|2009|16.0
+
+sqlite> .quit

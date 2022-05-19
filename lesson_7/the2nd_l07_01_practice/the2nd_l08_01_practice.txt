@@ -1,0 +1,29 @@
+# the2nd_l08_01_practice
+
+Создать папку LESSON_08. Перейти в папку the2nd_l08_01_practice и создать в ней папку the2nd_l08_01_practice. Перейти в папку the2nd_l08_01_practice.
+
+1. В терминале перейти в созданную папку the2nd_l08_01_practice. В ней запустить sqlite3 и создать БД с названием cars.db
+
+2. В созданной БД cars.db создать 2 таблицы:
+	- auto (brand TEXT, model TEXT, year INTEGER, value REAL)
+	- truck (brand TEXT, model TEXT, year INTEGER, value REAL)
+
+3. Добавить в созданные таблицы данные:
+	для auto:
+	("Ford", "Focus 3", 2011, 1.6)
+	("Mazda", "3", 2008, 2.0)
+	("BMW", "3.2.0", 2015, 2.0)
+	
+	для truck:
+	("Volvo", "VN", 2002, 12.0)
+	("Mack", "Programm", 2012, 16.0)
+	("Scania", "R 730", 2010, 16.4)
+	("Volvo", "FH16", 2009, 16.0)
+
+4. Вывести на экран для таблицы auto модели старше 2010 года в формате: brand|model|value
+
+5. Вывести на экран для таблицы truck модель volvo в формате: model|year|value
+
+6. Выйти из sqlite3
+
+7. Сохранить все записи и выводы в терминале, начиная с создания БД cars.db в файл results.txt
