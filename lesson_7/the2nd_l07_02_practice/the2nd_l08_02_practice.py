@@ -36,7 +36,7 @@ sw_people = [(p['name'], p['height'], p['mass'], p['hair_color'], p['skin_color'
 
 print(sw_people)
 
-db_name = "C:\\Users\\Dirac\\Desktop\\the2nd_meet_django_practice\\lesson_7\\the2nd_l07_02_practice\\star_wars.db"
+db_name = "path/to/star_wars.db"
 connect = sqlite3.connect(db_name)
 with connect:
     cursor = connect.cursor()

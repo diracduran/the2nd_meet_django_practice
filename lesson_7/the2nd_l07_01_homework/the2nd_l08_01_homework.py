@@ -20,16 +20,16 @@
 import sqlite3
 import csv
 
-conn = sqlite3.connect('C:\\Users\\Dirac\\Desktop\\the2nd_meet_django_practice\lesson_7\\the2nd_l07_01_homework\\comics.db')
+conn = sqlite3.connect('path/to/comics.db')
 
-with open('C:\\Users\\Dirac\\Desktop\\the2nd_meet_django_practice\lesson_7\\the2nd_l07_01_homework\\dc-wikia-data.csv', 'r') as csv_file:
+with open('path/to/dc-wikia-data.csv', 'r') as csv_file:
     reader = csv.reader(csv_file, delimiter=',') 
     dc_data = [] # пустой список для сохранения прочитанных данных
     for row in reader:
         dc_data.append(tuple(row)) # добавление в список
 dc = dc_data[0:]
 
-with open('C:\\Users\\Dirac\\Desktop\\the2nd_meet_django_practice\lesson_7\\the2nd_l07_01_homework\\marvel-wikia-data.csv', 'r') as csv_file:
+with open('path/to/marvel-wikia-data.csv', 'r') as csv_file:
     reader = csv.reader(csv_file, delimiter=',') 
     marvel_data = [] # пустой список для сохранения прочитанных данных
     for row in reader:
