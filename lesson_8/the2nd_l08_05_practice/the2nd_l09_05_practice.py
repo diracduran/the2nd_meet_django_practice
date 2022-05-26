@@ -15,9 +15,9 @@ import re
 
 # ВАШ КОД НИЖЕ
 def top_secret(check_mib):
-    # res = re.findall(r'[л|Л]юд\w{0,} в черном', check_mib)
-    # replaced_mib = check_mib.replace(res[0], 'СЕКРЕТ')
-    # return replaced_mib
+    res = re.findall(r'[л|Л]юд\w{0,} в черном', check_mib)
+    replaced_mib = check_mib.replace(res[0], 'СЕКРЕТ')
+    return replaced_mib
     return
 
 check_list = [
@@ -27,3 +27,8 @@ check_list = [
         ]
 
 for check in check_list: print(top_secret(check))
+"""
+СЕКРЕТ очень скрытные.
+Всегда на помощь приходят СЕКРЕТ!
+СЕКРЕТ могут узнать только люди в черном. :<
+"""
