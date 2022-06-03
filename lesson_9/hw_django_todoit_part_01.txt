@@ -1,0 +1,67 @@
+# hw_django_todoit_part_01.txt
+
+1) Создать папку Django-projects. Перейти в папку Django-projects. (Если у Вас уже создан проект в другой папке, то оставляйте его там).
+2) По материалам лекции 11_lesson_Django_TODOIT_part_01.pdf создайте проект TODOIT.
+!!! Не забудьте создать ВИРТУАЛЬНОЕ ОКРУЖЕНИЕ.
+
+
+ПЕРЕД ВЫПОЛНЕНИЕМ ДАННОГО ПУНКТА СОЗДАЙТЕ ВЕТКУ ОТ MASTER ВЕТКИ - hw_01 И ВЫПОЛНЯЙТЕ ДЗ НА ЭТОЙ ВЕТКЕ
+!!! ДАННУЮ ВЕТКУ НЕ НАДО СЛИЯТЬ С MASTER !!!
+
+
+3) Дан API (https://jsonplaceholder.typicode.com):
+	BASE_URL = 'https://jsonplaceholder.typicode.com' # Базовый URL
+	users_url = '/users' # 10 пользователей
+
+Примеры response:
+
+users:
+
+{
+id: 2,
+name: "Ervin Howell",
+username: "Antonette",
+email: "Shanna@melissa.tv",
+address: {
+street: "Victor Plains",
+suite: "Suite 879",
+city: "Wisokyburgh",
+zipcode: "90566-7771",
+geo: {
+lat: "-43.9509",
+lng: "-34.4618"
+}
+},
+phone: "010-692-6593 x09125",
+website: "anastasia.net",
+company: {
+name: "Deckow-Crist",
+catchPhrase: "Proactive didactic contingency",
+bs: "synergize scalable supply-chains"
+}
+}
+
+
+4) Используя библиотеку requests, вы можете получите коллекции данных для отображения в шаблоне html. Используйте шаблон страницы Bootstrap (https://getbootstrap.com/docs/4.0/getting-started/introduction/#starter-template)
+
+5) Напишите представление (views.py -- pages):
+	Отобразить всех пользователей по ссылке localhost/random_users (поля name, username, email, address)
+	def hw_users(request)
+	Используйте:
+	
+		<div class="col-lg-4">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+        <h2>Leanne Graham</h2> <!-- name -->
+        <ul>
+			<li>username: Bret</li> <!-- username -->
+			<li>email: Sincere@april.biz</li> <!-- email -->
+			<li>address: Kulas Light, Apt. 556, Gwenborough, 92998-3874</li> <!-- user.address -->
+		</ul>
+      </div>
+      
+	
+6) Не забудьте дабавить URL в urlpatterns.
+
+
+
+P.S. Исходные файлы к проекту TODOIT (без виртуального окружения) в L11_scripts.
