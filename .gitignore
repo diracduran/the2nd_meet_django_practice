@@ -160,7 +160,7 @@ cython_debug/
 
 #my stuff
 .gitignore
-**/lecture
+**/local_settings.py
 
 
 **/prepros.config
