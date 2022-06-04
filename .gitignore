@@ -160,7 +160,23 @@ cython_debug/
 
 #my stuff
 .gitignore
-**/local_settings.py
+
+.DS_Store 
+.vscode 
+*.log 
+*.pot 
+*.pyc 
+__pycache__/ 
+local_settings.py 
+/todoitproject/media/* 
+/todoitproject/static/* 
+/todoit_venv 
+*.pid 
+*.db 
+*.rdb 
+json_dumps.json 
+/logs 
+db.sqlite3
 
 
 **/prepros.config
