@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>TodoIT App | {% block title %}{% endblock title %}</title>
+		<link rel="stylesheet" href="{% static './styles/vapor/bootstrap.min.css' %}">
+	</head>
+	<body>
+		{% include 'partials/_navbar.html' %}
+		<div class="container" id="">
+			{% include 'partials/_notifications.html' %}
+    		{% include 'partials/_header.html' %}
+
+			{% block content %}{% endblock content %}
+		</div>
+		{% include 'partials/_footer.html' %}
+	</body>
+</html>
