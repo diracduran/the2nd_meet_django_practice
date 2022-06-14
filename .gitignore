@@ -169,7 +169,8 @@ cython_debug/
 __pycache__/ 
 local_settings.py 
 **/media/* 
-**/static/* 
+**/static/*
+**/static 
 /todoit_venv 
 *.pid 
 *.db 
