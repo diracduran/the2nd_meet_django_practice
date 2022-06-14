@@ -170,7 +170,6 @@ __pycache__/
 local_settings.py 
 **/media/* 
 **/static/*
-**/static 
 /todoit_venv 
 *.pid 
 *.db 
