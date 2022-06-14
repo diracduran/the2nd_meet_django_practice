@@ -168,8 +168,8 @@ cython_debug/
 *.pyc 
 __pycache__/ 
 local_settings.py 
-/todoitproject/media/* 
-/todoitproject/static/* 
+**/media/* 
+**/static/* 
 /todoit_venv 
 *.pid 
 *.db 
