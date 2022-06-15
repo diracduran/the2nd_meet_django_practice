@@ -8,13 +8,7 @@
 		<link rel="stylesheet" href="{% static './styles/vapor/bootstrap.min.css' %}">
 	</head>
 	<body>
-		{% include 'partials/_navbar.html' %}
-		<div class="container" id="">
-			{% include 'partials/_notifications.html' %}
-    		{% include 'partials/_header.html' %}
-
-			{% block content %}{% endblock content %}
-		</div>
+		{% block content %}{% endblock content %}
 		{% include 'partials/_footer.html' %}
 	</body>
 </html>

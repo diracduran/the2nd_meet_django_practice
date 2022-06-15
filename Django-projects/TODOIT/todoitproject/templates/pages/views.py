@@ -10,19 +10,6 @@ def edit(request):
     context = {} 
     return render(request, 'pages/edit.html', context=context)
 
-def login(request): 
-    context = {} 
-    return render(request, 'pages/login.html', context=context)
-
-def profile(request): 
-    context = {} 
-    return render(request, 'pages/profile.html', context=context)
-
-def register(request): 
-    context = {} 
-    return render(request, 'pages/register.html', context=context)
-
-
 # BASE_URL = 'https://jsonplaceholder.typicode.com' # Базовый URL
 # users_url = '/users' # 10 пользователей
 

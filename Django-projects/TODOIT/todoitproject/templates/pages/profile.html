@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+	{% include 'partials/_navbar.html' %}
+    <div class="container" id="main">
+        {% include 'partials/_notifications.html' %}
+        {% include 'partials/_header.html' %}
+		<!-- Profile -->
+		<div class="col-6 mx-auto" id="profile">
+			<p class="text-center">Profile</p>
+			<div class="profile-block">
+				<ul class="list-unstyled list-group">
+					<li class="d-flex justify-content-between bg-dark p-2 list-group-item align-items-center">
+						<div class="col-3">Username</div>
+						<div class="col-3">@username</div>
+					</li>
+					<li class="d-flex justify-content-between bg-dark p-2 list-group-item align-items-center">
+						<div class="col-3">Full Name</div>
+						<div class="col-3">Name Lastname</div>
+					</li>
+					<li class="d-flex justify-content-between bg-dark p-2 list-group-item align-items-center">
+						<div class="col-3">Email</div>
+						<div class="col-3">username@test.com</div>
+						
+					</li>
+					<li class="d-flex justify-content-between bg-dark p-2 list-group-item align-items-center">
+						<div class="col-3">Registered at</div>
+						<div class="col-3">01.03.2020</div>
+					</li>
+					<li class="d-flex justify-content-between bg-dark p-2 list-group-item align-items-center">
+						Active Tasks <span class="badge bg-info rounded-pill">4</div>
+					</li>
+					<li class="d-flex justify-content-between bg-dark p-2 list-group-item">
+						Completed Tasks <span class="badge bg-primary rounded-pill">4</div>
+					</li>
+				</ul>
+			</div>
+			
+		</div>
+		<!-- End Profile -->
+	</div>
+{% endblock content %}
