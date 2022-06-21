@@ -1,19 +1,10 @@
 {% extends 'layout.html' %}
 {% load static %}
+{% block title %}Log In{% endblock title %}
 {% block content %}
-    <div class="container" id="main">
-        <!-- Notifications -->
-		<div class="alert alert-dismissible alert-danger" id="notification-error">
-			<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-			<strong>Notification</strong> Username or Password is incorrect!</a>
-		</div>
-		<!-- End Notifications -->
-        <!-- Header -->
-		<div class="my-5 d-flex justify-content-center" id="header-logo">
-			<p class="text-center">Header Logo</p>
-			<img class="img-thumbnail" src="{% static './img/test_logo.png' %}" alt="todos_img" style="width: 210px;">
-		</div>
-		<!-- End Header -->
+    <div class="container mt-4" id="main">
+        {% include 'partials/_notifications.html' %}
+        {% include 'partials/_reg-log-header.html' %}
 		<!-- Login Form -->
 		<div class="col-6 mx-auto" id="login-form-block">
 			<p class="text-center">Login Form</p>

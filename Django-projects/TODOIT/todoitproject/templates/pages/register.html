@@ -1,14 +1,10 @@
 {% extends 'layout.html' %}
 {% load static %}
+{% block title %}Register{% endblock title %}
 {% block content %}
-    <div class="container" id="main">
-        {% include 'partials/_error.html' %}
-        <!-- Header -->
-		<div class="my-5 d-flex justify-content-center" id="header-logo">
-			<p class="text-center">Header Logo</p>
-			<img class="img-thumbnail" src="{% static './img/test_logo.png' %}" alt="todos_img" style="width: 210px;">
-		</div>
-		<!-- End Header -->
+    <div class="container mt-4" id="main">
+        {% include 'partials/_notifications.html' %}
+        {% include 'partials/_reg-log-header.html' %}
 		<!-- Register Form -->
 		<div class="col-6 mx-auto" id="register-form-block">
 			<p class="text-center"Register Form</p>

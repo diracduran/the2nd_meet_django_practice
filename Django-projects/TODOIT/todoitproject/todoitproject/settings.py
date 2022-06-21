@@ -131,6 +131,16 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 
+# Messages 
+from django.contrib.messages import constants as messages 
+MESSAGE_TAGS = { 
+    20: 'light', 
+    25: 'success', 
+    30: 'warning', 
+    40: 'danger', 
+}
+
+
 # Load local_settings.py 
 try: 
     from todoitproject.local_settings import * 
