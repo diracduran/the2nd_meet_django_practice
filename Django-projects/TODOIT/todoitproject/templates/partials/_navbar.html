@@ -1,6 +1,6 @@
 {% load static %}
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5" id="navbar">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
             <a href="#">
@@ -10,19 +10,25 @@
         <div class="collapse navbar-collapse" id="navbarColor02">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Home
-                    <span class="visually-hidden">(current)</span>
+                    <a class="nav-link active" href="{% url 'index' %}">Home
+                        <span class="visually-hidden">(current)</span>
                     </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="start_template_profile.html">Profile</a>
-                </li>
-            </ul>
-            <form class="d-flex">
-                <span class="navbar-text align-self-center mx-3" style="margin-left: 0;">@username</span>
-                <button class="btn btn-secondary my-2 my-sm-0" type="submit"><a class="text-white text-decoration-none" href="start_template_login.html">Logout</a></button>
-            </form>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+                    </li>
+                </ul>
+                {% if user.is_authenticated %}
+                    <form class="d-flex">
+                        <span class="navbar-text align-self-center mx-3" style="margin-left: 0;">@{{user.get_username}}</span>
+                        <button class="btn btn-secondary my-2 my-sm-0" type="submit"><a class="text-white text-decoration-none" href="{% url 'logout' %}">Logout</a></button>
+                    </form>
+                {% else %}
+                    <form class="d-flex">
+                        <button class="btn btn-secondary my-2 my-sm-0" type="submit"><a class="text-white text-decoration-none" href="{% url 'login' %}">Login</a></button>
+                    </form>
+                {% endif %}
+            </div>
         </div>
-    </div>
-</nav>
-<!-- End Navbar -->
+    </nav>
+    <!-- End Navbar -->

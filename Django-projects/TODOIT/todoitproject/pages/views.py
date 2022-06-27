@@ -1,15 +1,19 @@
 from django.shortcuts import render, redirect
 from tasks.models import Task 
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
+@login_required 
 def index(request): 
-    tasks = Task.objects.all() 
+    tasks = Task.objects.all().filter(user=request.user) 
     context = { 
         'tasks': tasks, 
     } 
     return render(request, 'pages/index.html', context=context)
 
+@login_required 
 def create_task(request): 
     if request.method == 'POST': 
         new_task = Task() 
@@ -23,6 +27,7 @@ def create_task(request):
         messages.success(request, f'Task #{new_task.id} successfully created!') 
         return redirect('index')
 
+@login_required 
 def complete_task(request, task_id): 
     task = Task.objects.get(id=task_id) 
     task.is_completed = not task.is_completed 
@@ -30,6 +35,7 @@ def complete_task(request, task_id):
     messages.success(request, f'Task #{task.id} successfully completed!') 
     return redirect('index')
 
+@login_required 
 def complete_all_tasks(request): 
     tasks = Task.objects.filter(is_completed=False) 
     for task in tasks: 
@@ -38,12 +44,14 @@ def complete_all_tasks(request):
     messages.success(request, 'All Tasks successfully completed!') 
     return redirect('index')
 
+@login_required 
 def delete_task(request, task_id): 
     task = Task.objects.get(id=task_id) 
     task.delete() 
     messages.warning(request, f'Task #{task.id} successfully deleted!') 
     return redirect('index')
 
+@login_required 
 def delete_active_tasks(request): 
     tasks = Task.objects.all() 
     for task in tasks: 
@@ -52,6 +60,7 @@ def delete_active_tasks(request):
     messages.warning(request, 'All Active tasks successfully deleted!') 
     return redirect('index')
 
+@login_required 
 def delete_completed_tasks(request): 
     tasks = Task.objects.all() 
     for task in tasks: 
@@ -60,6 +69,7 @@ def delete_completed_tasks(request):
     messages.warning(request, 'All Completed tasks successfully deleted!') 
     return redirect('index')
 
+@login_required 
 def edit(request, task_id): 
     task = Task.objects.get(id=task_id) 
     context = { 
@@ -78,14 +88,11 @@ def edit(request, task_id):
         messages.success(request, f'Task #{task.id} successfully updated!') 
         return redirect('index')
 
-def login(request): 
-    context = {} 
-    return render(request, 'pages/login.html', context=context)
-
+@login_required 
 def profile(request): 
-    context = {} 
+    tasks = Task.objects.filter(user=request.user) 
+    context = { 
+        'active_tasks': tasks.filter(is_completed=False).count(), 
+        'completed_tasks': tasks.filter(is_completed=True).count(), 
+    } 
     return render(request, 'pages/profile.html', context=context)
-
-def register(request): 
-    context = {} 
-    return render(request, 'pages/register.html', context=context)

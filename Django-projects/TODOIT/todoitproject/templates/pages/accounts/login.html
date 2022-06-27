@@ -8,24 +8,37 @@
 		<!-- Login Form -->
 		<div class="col-6 mx-auto" id="login-form-block">
 			<p class="text-center">Login Form</p>
-			<form class="mx-auto" action="" id="login-block">
+			<form class="mx-auto" action="{% url 'login' %}" method="POST" id="login-block">
+				{% csrf_token %}
 				<div class="form-group row mb-3">
 					<label for="username" class="col-sm-2 col-form-label">Username</label>
 					<div class="col-sm-10">
 						<input class="form-control" type="text" name="username" id="username" placeholder="Username" required>
+						<div class="valid-feedback">
+							Username looks good!
+						</div>
+						<div class="invalid-feedback">
+							Please fill Username field.
+						</div>
 					</div>
 				</div>
 				<div class="form-group row mb-3">
 					<label for="password" class="col-sm-2 col-form-label">Password</label>
 					<div class="col-sm-10">
-						<input class="form-control" type="text" name="password" id="password" placeholder="Password" required>
+						<input class="form-control" type="password" name="password" id="password" placeholder="Password" required>
+						<div class="valid-feedback">
+							Password looks good!
+						</div>
+						<div class="invalid-feedback">
+							Please fill Password field.
+						</div>
 					</div>
 				</div>
 				<div class="d-flex justify-content-center">
-					<button class="btn btn-outline-primary" type="submit">login</button>
+					<button class="btn btn-primary" type="submit">log in</button>
 					<p class="mx-3 mb-0 align-self-center">or</p>
-					<button class="btn btn-primary">
-						<a class="text-white text-decoration-none" href="start_template_register.html">register</a>
+					<button class="btn btn-outline-primary">
+						<a class="text-white text-decoration-none" href="{% url 'register' %}">sign in (if u dont have account)</a>
 					</button>
 				</div>
 			</form>

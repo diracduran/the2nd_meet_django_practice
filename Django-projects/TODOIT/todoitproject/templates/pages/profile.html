@@ -13,26 +13,26 @@
 				<ul class="list-unstyled list-group">
 					<li class="d-flex justify-content-between bg-dark p-2 list-group-item align-items-center">
 						<div class="col-3">Username</div>
-						<div class="col-3">@username</div>
+						<div class="col-3">@{{user.get_username}}</div>
 					</li>
 					<li class="d-flex justify-content-between bg-dark p-2 list-group-item align-items-center">
 						<div class="col-3">Full Name</div>
-						<div class="col-3">Name Lastname</div>
+						<div class="col-3">{{user.get_full_name}}</div>
 					</li>
 					<li class="d-flex justify-content-between bg-dark p-2 list-group-item align-items-center">
 						<div class="col-3">Email</div>
-						<div class="col-3">username@test.com</div>
+						<div class="col-3">{{user.email}}</div>
 						
 					</li>
 					<li class="d-flex justify-content-between bg-dark p-2 list-group-item align-items-center">
 						<div class="col-3">Registered at</div>
-						<div class="col-3">01.03.2020</div>
+						<div class="col-3">{{user.date_joined}}</div>
 					</li>
 					<li class="d-flex justify-content-between bg-dark p-2 list-group-item align-items-center">
-						Active Tasks <span class="badge bg-info rounded-pill">4</div>
+						Active Tasks <span class="badge bg-info rounded-pill">{{active_tasks}}</div>
 					</li>
 					<li class="d-flex justify-content-between bg-dark p-2 list-group-item">
-						Completed Tasks <span class="badge bg-primary rounded-pill">4</div>
+						Completed Tasks <span class="badge bg-primary rounded-pill">{{completed_tasks}}</div>
 					</li>
 				</ul>
 			</div>

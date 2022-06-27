@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'pages', #add app pages
     'tasks', # add app tasks
+    'accounts', # add app accounts
 ]
 
 MIDDLEWARE = [
