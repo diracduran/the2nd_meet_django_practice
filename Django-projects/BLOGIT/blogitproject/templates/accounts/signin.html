@@ -1,137 +1,139 @@
 {% extends 'layout.html' %}
 {% load static %}
 {% block title %}Sign In{% endblock title %}
-<!-- breadcrumb start-->
-<section class="breadcrumb breadcrumb_bg">
-   <div class="container">
-       <div class="row">
-           <div class="col-lg-12">
-               <div class="breadcrumb_iner">
-                   <div class="breadcrumb_iner_item">
-                       <h2>Log In</h2>
-                   </div>
-               </div>
-           </div>
-       </div>
-   </div>
-</section>
-<!-- breadcrumb start-->
+{% block content %}
+	<!-- breadcrumb start-->
+	<section class="breadcrumb breadcrumb_bg">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="breadcrumb_iner">
+					<div class="breadcrumb_iner_item">
+						<h2>Sign In</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</section>
+	<!-- breadcrumb start-->
 
-<!-- ================ contact section start ================= -->
-<section class="contact-section section_padding">
-   <div class="container">
+	<!-- ================ contact section start ================= -->
+	<section class="contact-section section_padding">
+	<div class="container">
 
-       <div class="row">
-           <div class="col-12">
-               <h2 class="contact-title">Get in Touch</h2>
-           </div>
-           <div class="col-lg-8">
-               <form class="form-contact contact_form" action="{% url 'signin' %}" method="POST" id="contactForm" novalidate="novalidate">
-                {% csrf_token %}
-                <div class="form-group row mb-3">
-					<label for="username" class="col-sm-2 col-form-label">Username</label>
-					<div class="col-sm-10">
-						<input class="form-control" type="text" name="username" id="username" placeholder="Username" required>
-						<div class="valid-feedback">
-							Username looks good!
-						</div>
-						<div class="invalid-feedback">
-							Please fill Username field.
-						</div>
-					</div>
-				</div>
-				<div class="form-group row mb-3">
-					<label for="email"class="col-sm-2 col-form-label">Email</label>
-					<div class="col-sm-10">
-						<input class="form-control" type="email" name="email" id="email" placeholder="email@example.com">
-						<div class="valid-feedback">
-							Email looks good!
-						</div>
-						<div class="invalid-feedback">
-							Please fill Email field.
+		<div class="row">
+			<div class="col-12">
+				<h2 class="contact-title">Get in Touch</h2>
+			</div>
+			<div class="col-lg-8">
+				<form class="form-contact contact_form" action="{% url 'signin' %}" method="POST" id="contactForm" novalidate="novalidate">
+					{% csrf_token %}
+					<div class="form-group row mb-3">
+						<label for="username" class="col-sm-2 col-form-label">Username</label>
+						<div class="col-sm-10">
+							<input class="form-control" type="text" name="username" id="username" placeholder="Username" required>
+							<div class="valid-feedback">
+								Username looks good!
+							</div>
+							<div class="invalid-feedback">
+								Please fill Username field.
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="form-group row mb-3">
-					<label for="first-name"class="col-sm-2 col-form-label">First Name</label>
-					<div class="col-sm-10">
-						<input class="form-control" type="text" name="first_name" id="first-name" placeholder="First Name">
-						<div class="valid-feedback">
-							First Name looks good!
-						</div>
-						<div class="invalid-feedback">
-							Please fill First Name field.
-						</div>
-					</div>
-				</div>
-				<div class="form-group row mb-3">
-					<label for="first-name"class="col-sm-2 col-form-label">Last Name</label>
-					<div class="col-sm-10">
-						<input class="form-control" type="text" name="last_name" id="last-name" placeholder="Last Name">
-						<div class="valid-feedback">
-							Last Name looks good!
-						</div>
-						<div class="invalid-feedback">
-							Please fill Last Name field.
+					<div class="form-group row mb-3">
+						<label for="email"class="col-sm-2 col-form-label">Email</label>
+						<div class="col-sm-10">
+							<input class="form-control" type="email" name="email" id="email" placeholder="email@example.com">
+							<div class="valid-feedback">
+								Email looks good!
+							</div>
+							<div class="invalid-feedback">
+								Please fill Email field.
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="form-group row mb-3">
-					<label for="password" class="col-sm-2 col-form-label">Password</label>
-					<div class="col-sm-10">
-						<input class="form-control" type="password" name="password" id="password" placeholder="Password" required>
-						<div class="valid-feedback">
-							Password looks good!
-						</div>
-						<div class="invalid-feedback">
-							Please fill Password field.
-						</div>
-					</div>
-				</div>
-				<div class="form-group row mb-3">
-					<label for="password" class="col-sm-2 col-form-label">Repeat Password</label>
-					<div class="col-sm-10">
-						<input class="form-control" type="password" name="password1" id="password1" placeholder="Repeat Password" required>
-						<div class="valid-feedback">
-							Repeated password looks good!
-						</div>
-						<div class="invalid-feedback">
-							Please fill Repeat Password field.
+					<div class="form-group row mb-3">
+						<label for="first-name"class="col-sm-2 col-form-label">First Name</label>
+						<div class="col-sm-10">
+							<input class="form-control" type="text" name="first_name" id="first-name" placeholder="First Name">
+							<div class="valid-feedback">
+								First Name looks good!
+							</div>
+							<div class="invalid-feedback">
+								Please fill First Name field.
+							</div>
 						</div>
 					</div>
+					<div class="form-group row mb-3">
+						<label for="first-name"class="col-sm-2 col-form-label">Last Name</label>
+						<div class="col-sm-10">
+							<input class="form-control" type="text" name="last_name" id="last-name" placeholder="Last Name">
+							<div class="valid-feedback">
+								Last Name looks good!
+							</div>
+							<div class="invalid-feedback">
+								Please fill Last Name field.
+							</div>
+						</div>
+					</div>
+					<div class="form-group row mb-3">
+						<label for="password" class="col-sm-2 col-form-label">Password</label>
+						<div class="col-sm-10">
+							<input class="form-control" type="password" name="password" id="password" placeholder="Password" required>
+							<div class="valid-feedback">
+								Password looks good!
+							</div>
+							<div class="invalid-feedback">
+								Please fill Password field.
+							</div>
+						</div>
+					</div>
+					<div class="form-group row mb-3">
+						<label for="password" class="col-sm-2 col-form-label">Repeat Password</label>
+						<div class="col-sm-10">
+							<input class="form-control" type="password" name="password1" id="password1" placeholder="Repeat Password" required>
+							<div class="valid-feedback">
+								Repeated password looks good!
+							</div>
+							<div class="invalid-feedback">
+								Please fill Repeat Password field.
+							</div>
+						</div>
+					</div>
+					<div class="d-flex justify-content-center">
+						<button class="button button-contactForm btn_4 mt-0" type="submit">sign in</button>
+						<p class="mx-3 mb-0 align-self-center">or</p>
+						<button class="button button-contactForm btn_4 mt-0">
+							<a class="text-white text-decoration-none" href="{% url 'login' %}">log in (if u have account)</a>
+						</button>
+					</div>
+				</form>
+			</div>
+			<div class="col-lg-4">
+				<div class="media contact-info">
+				<span class="contact-info__icon"><i class="ti-home"></i></span>
+				<div class="media-body">
+					<h3>Buttonwood, California.</h3>
+					<p>Rosemead, CA 91770</p>
 				</div>
-                   <div class="d-flex justify-content-center">
-                       <button class="button button-contactForm btn_4 mt-0" type="submit">sign in</button>
-                       <p class="mx-3 mb-0 align-self-center">or</p>
-                       <button class="button button-contactForm btn_4 mt-0">
-                           <a class="text-white text-decoration-none" href="{% url 'login' %}">log in (if u have account)</a>
-                       </button>
-                   </div>
-               </form>
-           </div>
-           <div class="col-lg-4">
-               <div class="media contact-info">
-               <span class="contact-info__icon"><i class="ti-home"></i></span>
-               <div class="media-body">
-                   <h3>Buttonwood, California.</h3>
-                   <p>Rosemead, CA 91770</p>
-               </div>
-               </div>
-               <div class="media contact-info">
-               <span class="contact-info__icon"><i class="ti-tablet"></i></span>
-               <div class="media-body">
-                   <h3>00 (440) 9865 562</h3>
-                   <p>Mon to Fri 9am to 6pm</p>
-               </div>
-               </div>
-               <div class="media contact-info">
-               <span class="contact-info__icon"><i class="ti-email"></i></span>
-               <div class="media-body">
-                   <h3>support@colorlib.com</h3>
-                   <p>Send us your query anytime!</p>
-               </div>
-               </div>
-           </div>
-       </div>
-   </div>
-</section>
+				</div>
+				<div class="media contact-info">
+				<span class="contact-info__icon"><i class="ti-tablet"></i></span>
+				<div class="media-body">
+					<h3>00 (440) 9865 562</h3>
+					<p>Mon to Fri 9am to 6pm</p>
+				</div>
+				</div>
+				<div class="media contact-info">
+				<span class="contact-info__icon"><i class="ti-email"></i></span>
+				<div class="media-body">
+					<h3>support@colorlib.com</h3>
+					<p>Send us your query anytime!</p>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</section>
+{% endblock content %}

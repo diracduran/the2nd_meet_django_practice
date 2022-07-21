@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import auth
+from django.contrib.auth.models import User
 
 # Create your views here.
 def login(request):
@@ -17,7 +18,7 @@ def login(request):
 
 def signin(request):
     if request.method == 'GET':
-        return render(request, 'accounts/register.html')
+        return render(request, 'accounts/signin.html')
     if request.method == 'POST':
         username = request.POST['username']
         email = request.POST['email']
