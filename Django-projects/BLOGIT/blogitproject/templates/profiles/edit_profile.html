@@ -1,0 +1,86 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block title %} Edit Profile{% endblock title %}
+{% block content %}
+{% if user.is_authenticated %}
+    <!-- breadcrumb start-->
+   <section class="breadcrumb breadcrumb_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb_iner">
+                        <div class="breadcrumb_iner_item">
+                            <p>Home. @{{user.username}}</p>
+                            <h2>Edit Profile</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- breadcrumb start-->
+{% endif %}
+    <section class="edit_section section_padding">
+		<div class="container">
+            {% if user.id == profile.user.id %}
+			<div class="row">
+				<div class="col-lg-8">
+					<form class="form-contact contact_form" action="{% url 'edit_user_profile' profile.user.username %}" method='POST' id="editForm" novalidate="novalidate" enctype="multipart/ form-data">
+						{% csrf_token %}
+                        <div class="form-group row mb-3">
+							<label for="username"class="col-sm-2 col-form-label">Username</label>
+							<div class="col-sm-10">
+								<input class="form-control" type="text" name="username" id="username" placeholder="Username" value="{{user.username}}" readonly>
+							</div>
+						</div>
+						<div class="form-group row mb-3">
+                            <label for="first_name"class="col-sm-2 col-form-label">First Name</label>
+							<div class="col-sm-10">
+                                <input class="form-control" type="text" name="first_name" id="first_name" value="{{user.first_name}}" placeholder="First Name">
+							</div>
+						</div>
+						<div class="form-group row mb-3">
+                            <label for="last_name"class="col-sm-2 col-form-label">Last Name</label>
+							<div class="col-sm-10">
+                                <input class="form-control" type="text" name="last_name" id="last_name" value="{{user.last_name}}" placeholder="Last Name">
+							</div>
+						</div>
+                        <div class="form-group row mb-3">
+                            <label for="email"class="col-sm-2 col-form-label">Email</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="email" name="email" id="email" placeholder="Email" value="{{user.email}}" readonly>
+                            </div>
+                        </div>
+						<div class="form-group row mb-3">
+							<label for="status" class="col-sm-2 col-form-label">Status</label>
+							<div class="col-sm-10">
+								<input class="form-control" type="status" name="status" id="status" value="{{profile.status}}" placeholder="Status">
+							</div>
+						</div>
+						<div class="form-group row mb-3">
+							<label for="about" class="col-sm-2 col-form-label">About</label>
+							<div class="col-sm-10">
+								<textarea class="form-control" name="about" id="about" value="{{profile.about}}" placeholder="About"></textarea>
+							</div>
+						</div>
+                        <div class="form-group row mb-3">
+							<label for="profile_image" class="col-sm-2 col-form-label">Profile Image</label>
+							<div class="col-sm-10">
+								<input class="form-control" type="file" name="profile_image" id="profile_image" placeholder="Profile Image">
+							</div>
+						</div>
+						<div class="d-flex justify-content-lg-center flex-lg-row flex-sm-column flex-xs-column">
+							<button class="button button-contactForm btn_4 mt-0" type="submit">Edit</button>
+							<p class="mx-3 mb-0 align-self-center">or</p>
+							<button class="button button-contactForm btn_4 mt-0">
+								<a class="text-white text-decoration-none" href="{% url 'get_user_profile' user.username %}">Cancel</a>
+							</button>
+						</div>
+					</form>
+				</div>
+            </div>
+            {% endif %}
+        </div>
+    </section>
+
+{% endblock content %}
