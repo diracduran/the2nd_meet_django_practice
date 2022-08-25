@@ -42,14 +42,12 @@ def edit_user_profile(request, username):
         profile.status = status
         profile.about = about
         # profile image update
-        print(request.FILES)
         try:
             if any(request.FILES):
                 profile.profile_image = request.FILES['profile_image']
+                profile.is_thumbnailed = False
         except:
             return render(request, 'profiles/edit_profile.html', context=context)
-        else:
-            profile.is_thumbnailed = False
         # profile and user save
         user.save()
         profile.save()

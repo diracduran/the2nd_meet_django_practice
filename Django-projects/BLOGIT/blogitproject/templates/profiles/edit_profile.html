@@ -4,7 +4,7 @@
 {% block content %}
 {% if user.is_authenticated %}
     <!-- breadcrumb start-->
-   <section class="breadcrumb breadcrumb_bg">
+   <section class="breadcrumb" style="background-image: url('/media/{{profile.profile_image}}'); background-repeat: no-repeat; background-size: cover; background-position: center;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -22,7 +22,6 @@
 {% endif %}
     <section class="edit_section section_padding">
 		<div class="container">
-            {% if user.id == profile.user.id %}
 			<div class="row">
 				<div class="col-lg-8">
 					<form class="form-contact contact_form" action="{% url 'edit_user_profile' profile.user.username %}" method='POST' id="editForm" novalidate="novalidate" enctype="multipart/ form-data">
@@ -30,25 +29,25 @@
                         <div class="form-group row mb-3">
 							<label for="username"class="col-sm-2 col-form-label">Username</label>
 							<div class="col-sm-10">
-								<input class="form-control" type="text" name="username" id="username" placeholder="Username" value="{{user.username}}" readonly>
+								<input class="form-control" type="text" name="username" id="username" placeholder="Username" value="{{profile.user.username}}" readonly>
 							</div>
 						</div>
 						<div class="form-group row mb-3">
                             <label for="first_name"class="col-sm-2 col-form-label">First Name</label>
 							<div class="col-sm-10">
-                                <input class="form-control" type="text" name="first_name" id="first_name" value="{{user.first_name}}" placeholder="First Name">
+                                <input class="form-control" type="text" name="first_name" id="first_name" value="{{profile.user.first_name}}" placeholder="First Name">
 							</div>
 						</div>
 						<div class="form-group row mb-3">
                             <label for="last_name"class="col-sm-2 col-form-label">Last Name</label>
 							<div class="col-sm-10">
-                                <input class="form-control" type="text" name="last_name" id="last_name" value="{{user.last_name}}" placeholder="Last Name">
+                                <input class="form-control" type="text" name="last_name" id="last_name" value="{{profile.user.last_name}}" placeholder="Last Name">
 							</div>
 						</div>
                         <div class="form-group row mb-3">
                             <label for="email"class="col-sm-2 col-form-label">Email</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="email" name="email" id="email" placeholder="Email" value="{{user.email}}" readonly>
+                                <input class="form-control" type="email" name="email" id="email" placeholder="Email" value="{{profile.user.email}}" readonly>
                             </div>
                         </div>
 						<div class="form-group row mb-3">
@@ -73,13 +72,12 @@
 							<button class="button button-contactForm btn_4 mt-0" type="submit">Edit</button>
 							<p class="mx-3 mb-0 align-self-center">or</p>
 							<button class="button button-contactForm btn_4 mt-0">
-								<a class="text-white text-decoration-none" href="{% url 'get_user_profile' user.username %}">Cancel</a>
+								<a class="text-white text-decoration-none" href="{% url 'get_user_profile' profile.user.username %}">Cancel</a>
 							</button>
 						</div>
 					</form>
 				</div>
             </div>
-            {% endif %}
         </div>
     </section>
 
