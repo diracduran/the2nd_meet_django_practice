@@ -17,6 +17,7 @@
                       <p>{{profile.status}}</p>
                       <p>{{profile.about}}</p>
                     </div>
+                    <div>
                         {% if user.id == profile.user.id %}
                         <a href="{% url 'edit_user_profile' profile.user.username %}" class="btn_1">Edit profile</a>
                         {% endif %}
