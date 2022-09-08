@@ -1,5 +1,6 @@
 {% extends 'layout.html' %}
 {% load static %}
+{% load thumbnail %}
 {% block title %}BLOG{% endblock title %}
 {% block content %}
    <!-- breadcrumb start-->
@@ -106,7 +107,8 @@
                   <div class="blog-author">
                      {% if blog.author.id == profile.user.id %}
                      <div class="media align-items-center">
-                        <img src="/media/{{profile.profile_image}}" alt="">
+                        {% thumbnail profile.profile_image 90x90 as thumb %}
+                        <img src="{{thumb.url}}" alt="">
                         <div class="media-body">
                            <a href="#">
                               <h4>{{blog.author.user.get_full_name}}</h4>
