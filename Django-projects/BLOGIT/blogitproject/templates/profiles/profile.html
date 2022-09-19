@@ -72,10 +72,10 @@
                     <a href="#"><i class="far fa-user"></i>{{blog.category}}</a>
                   </li>
                   <li>
-                    <a href="#"><i class="far fa-comments"></i>3 Comments</a>
+                    <a href="#"><i class="far fa-comments"></i>{{blog.comments.all.count}} Comments</a>
                   </li>
                   <li>
-                    <a href="#"><i class="far fa-heart"></i>0 People like this</a>
+                    <a href="#"><i class="far fa-heart"></i>{{blog.likes|length}} People like this</a>
                   </li>
                 </ul>
               </div>

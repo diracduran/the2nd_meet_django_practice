@@ -61,6 +61,18 @@
                                 </textarea>
                             </div>
                         </div>
+                        <div class="switch-wrap d-flex align-items-center">
+                            <p class='mr-5'>Publish</p>
+                            <div class='primary-checkbox ml-4'>
+                                <input id="is_published" name="is_published" type="checkbox" class="form-control checkbox "
+                                    {% if blog.is_published %}
+                                        checked
+                                        value="yes"
+                                    {% endif %}
+                                >
+                                <label for="is_published"class="primary-checkbox"></label>
+                            </div>
+                        </div>
                         <div class="d-flex flex-column">
                             <button class="button button-contactForm btn_4 mt-0" type="submit">Edit</button>
                         </div>
