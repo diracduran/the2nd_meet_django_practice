@@ -65,5 +65,24 @@
         <script src="{% static './js/jquery.nice-select.min.js' %}"></script>
         <!-- custom js -->
         <script src="{% static './js/custom.js' %}"></script>
-    </body>
+
+        <script type="text/javascript">
+            function addOrRemoveLike(blogId) {
+                $.ajax({
+                    type:"POST",
+                    url: "{% url 'add_or_remove_like_ajax' %}",
+                    data:{
+                        blog_id: blogId,
+                        csrfmiddlewaretoken: "{{csrf_token}}"
+                    },
+                    success: function(data) {
+                        console.log(data.likes);
+                        $('#numLikes').text(data.likes);
+                    }
+                });
+            };
+        </script>
+        {% comment %}---> NoReverseMatch at /blogs/blog/dirac/third-post-and-this-time-from-form-almost-perfect-451c870a/view
+        Reverse for 'add_or_remove_like_ajax' not found. 'add_or_remove_like_ajax' is not a valid view function or pattern name.{% endcomment %}
+    </body> 
 </html>

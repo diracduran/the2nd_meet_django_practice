@@ -72,6 +72,10 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'libraries': {
+                'sidebar_tag': 'pages.templatetags.sidebar_tag',
+                'profile-activity_tag': 'profiles.templatetags.profile_activity_tag',
+            }
         },
     },
 ]
@@ -151,6 +155,8 @@ MESSAGE_TAGS = {
     30: 'warning',
     40: 'danger',
 }
+
+TAGGIT_CASE_INSENSITIVE = True
 
 try:
     from blogitproject.local_settings import *

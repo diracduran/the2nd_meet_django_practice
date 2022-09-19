@@ -2,15 +2,18 @@ from django.shortcuts import render, get_object_or_404, redirect
 from profiles.models import Profile
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from blogs.models import Blog
 
 # Create your views here.
 @login_required
 def get_user_profile(request, username):
     if request.method == 'GET':
+        blogs = Blog.objects.filter(is_published = True)
         profile = get_object_or_404(Profile, user__username=username)
         # profile = Profile.objects.get(user__username=username)
         context = {
             'profile': profile,
+            'blogs': blogs
         }
         return render(request, 'profiles/profile.html', context=context)
 

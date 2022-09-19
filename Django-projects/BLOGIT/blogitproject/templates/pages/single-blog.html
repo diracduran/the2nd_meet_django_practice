@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 {% load static %}
 {% load thumbnail %}
-{% block title %}BLOG{% endblock title %}
+{% block title %} {{blog.title}}{% endblock title %}
 {% block content %}
    <!-- breadcrumb start-->
    {% if blog.author.user == profile.user %}
@@ -10,10 +10,15 @@
          <div class="row">
             <div class="col-lg-12">
                <div class="breadcrumb_iner">
-               <div class="breadcrumb_iner_item">
-                  <p>home. blog</p>
-                  <h2>{{blog.title}}</h2>
-               </div>
+                  <div class="breadcrumb_iner_item">
+                     <p>Blog</p>
+                     <h2>{{blog.title}}</h2>
+                     {% if blog.author.user == request.user %}
+                     <div class='mt-5'>
+                        <a href="{% url 'edit_blog' blog.author.user.username blog.slug %}" class="btn_1">Edit blogpost</a>
+                      </div>
+                      {% endif %}
+                  </div>
                </div>
             </div>
          </div>
@@ -28,16 +33,31 @@
                <div class="col-lg-8 posts-list">
                   <div class="single-post">
                      <div class="blog_details">
-                        <ul class="blog-info-link mt-3 mb-4">
+                        <ul class="blog-info-link mt-3 mb-4 d-flex align-items-center">
                            <li>
-                              <a href="#"><i class="far fa-user"></i>{{blog.category}}</a>
+                              <span class='mr-0' style='font-size: 14px;'><i class="far fa-user"></i>{{blog.category}}</span>
                            </li>
                            <li>
-                              <a href="#"><i class="far fa-comments"></i>3 Comments</a>
+                              <span class='mr-0' style='font-size: 14px;' id="numLikes"><i class="far fa-heart"></i>{{blog.likes|length}}</span>
+                           </li>
+                           <li>
+                              <span class='mr-0' style='font-size: 14px;'><i class="far fa-comments"></i>{{blog.comments.all.count}} Comment(s)</span>
+                           </li>
+                           <li class='tags d-flex'>Tags: 
+                              <ul class='tags__list ml-1'>
+                                 {% with names=blog.tags.names %} 
+                                 {% if names.count > 0 %} 
+                                    {% for name in names %} 
+                                    <li><a style='font-size: 14px;' class='border px-2 py-1' href="#">{{name}}</a></li>
+                                    {% endfor %} 
+                                 {% endif %} 
+                                 {% endwith %}
+                              </ul>
+                           </li> 
                         </ul>
-                        <p>
-                           {{blog.text}}
-                        </p>
+                        {% comment %} <p>
+                        </p> {% endcomment %}
+                        {{blog.text|linebreaks}}
                         {% comment %} <div class="quote-wrapper">
                            <div class="quotes">
                               MCSE boot camps have its supporters and its detractors. Some people do not understand why you
@@ -49,11 +69,16 @@
                      </div>
                   </div>
                   <div class="navigation-top">
-                     <div class="d-sm-flex justify-content-between text-center">
-                        <p class="like-info"><span class="align-middle"><i class="far fa-heart"></i></span>Lily and 4
-                           people like this</p>
+                     <div class="d-sm-flex justify-content-between text-center align-items-center">
+                        {% if user.is_authenticated %}
+                        <div class="like-info" id="numLikes">
+                           <span class="align-middle mr-0" style='cursor: pointer;' onclick="addOrRemoveLike({{blog.id}})">
+                              <i class="far fa-heart mr-0"></i>
+                           </span>{{blog.likes|length}}
+                        </div>
+                        {% endif %}
                         <div class="col-sm-4 text-center my-2 my-sm-0">
-                           <p class="comment-count"><span class="align-middle"><i class="far fa-comment"></i></span>6 Comments</p>
+                           <p class="comment-count"><span class="align-middle mr-0"><i class="far fa-comment"></i></span>{{blog.comments.all.count}} Comments</p>
                         </div>
                         <ul class="social-icons">
                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
@@ -110,7 +135,7 @@
                         {% thumbnail profile.profile_image 90x90 as thumb %}
                         <img src="{{thumb.url}}" alt="">
                         <div class="media-body">
-                           <a href="#">
+                           <a href="{% url 'get_user_profile' user.username %}">
                               <h4>{{blog.author.user.get_full_name}}</h4>
                            </a>
                            <p>{{profile.about}}</p>
@@ -119,109 +144,49 @@
                      {% endif %}
                   </div>
                   <div class="comments-area">
-                     <h4>6 Comments</h4>
+                     <h4>{{blog.comments.all.count}} Comment(s)</h4>
+                     {% for comment in blog.comments.all %}
                      <div class="comment-list">
                         <div class="single-comment justify-content-between d-flex">
                            <div class="user justify-content-between d-flex">
                               <div class="thumb">
-                                 <img src="{% static './img/comment/comment_1.png' %}" alt="">
+                                 {% thumbnail comment.author.profile_image 40x40 as thumb %}
+                                 <img src="{{thumb.url}}" alt="" style='width: 40px;'>
                               </div>
                               <div class="desc">
-                                 <p class="comment">
-                                    Multiply sea night grass fourth day sea lesser rule open subdue female fill which them
-                                    Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
-                                 </p>
-                                 <div class="d-flex justify-content-between">
-                                    <div class="d-flex align-items-center">
+                                 {{comment.text|linebreaks}}
+                                 <div class="d-flex justify-content-between align-items-center">
+                                    <div class="d-flex">
                                        <h5>
-                                          <a href="#">Emilly Blunt</a>
+                                          <a href="#">{{comment.author.user.get_full_name}}</a>
                                        </h5>
-                                       <p class="date">December 4, 2017 at 3:12 pm </p>
+                                       <p class="date">{{comment.created_at}}</p>
                                     </div>
                                     <div class="reply-btn">
                                        <a href="#" class="btn-reply text-uppercase">reply</a>
                                     </div>
+                                    {% if user.id == comment.author.user.id %}
+                                    {% comment %} <div>
+                                       <a href="{% url 'delete_comment' blog.id comment.id %}"
+                                       class=""><i class="fa fa-trash"></i></a>
+                                    </div> {% endcomment %}
+                                    {% endif %}
                                  </div>
                               </div>
                            </div>
                         </div>
                      </div>
-                     <div class="comment-list">
-                        <div class="single-comment justify-content-between d-flex">
-                           <div class="user justify-content-between d-flex">
-                              <div class="thumb">
-                                 <img src="{% static './img/comment/comment_2.png' %}" alt="">
-                              </div>
-                              <div class="desc">
-                                 <p class="comment">
-                                    Multiply sea night grass fourth day sea lesser rule open subdue female fill which them
-                                    Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
-                                 </p>
-                                 <div class="d-flex justify-content-between">
-                                    <div class="d-flex align-items-center">
-                                       <h5>
-                                          <a href="#">Emilly Blunt</a>
-                                       </h5>
-                                       <p class="date">December 4, 2017 at 3:12 pm </p>
-                                    </div>
-                                    <div class="reply-btn">
-                                       <a href="#" class="btn-reply text-uppercase">reply</a>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="comment-list">
-                        <div class="single-comment justify-content-between d-flex">
-                           <div class="user justify-content-between d-flex">
-                              <div class="thumb">
-                                 <img src="{% static './img/comment/comment_3.png' %}" alt="">
-                              </div>
-                              <div class="desc">
-                                 <p class="comment">
-                                    Multiply sea night grass fourth day sea lesser rule open subdue female fill which them
-                                    Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
-                                 </p>
-                                 <div class="d-flex justify-content-between">
-                                    <div class="d-flex align-items-center">
-                                       <h5>
-                                          <a href="#">Emilly Blunt</a>
-                                       </h5>
-                                       <p class="date">December 4, 2017 at 3:12 pm </p>
-                                    </div>
-                                    <div class="reply-btn">
-                                       <a href="#" class="btn-reply text-uppercase">reply</a>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
+                     {% endfor %}
                   </div>
+                  {% if user.is_authenticated %}
                   <div class="comment-form">
                      <h4>Leave a Reply</h4>
-                     <form class="form-contact comment_form" action="#" id="commentForm">
+                     <form class="form-contact comment_form" action="{% url 'leave_comment_to_blog' blog.author.user.username blog.slug %}" method='POST' id="commentForm">
+                        {% csrf_token %}
                         <div class="row">
                            <div class="col-12">
                               <div class="form-group">
-                                 <textarea class="form-control w-100" name="comment" id="comment" cols="30" rows="9"
-                                    placeholder="Write Comment"></textarea>
-                              </div>
-                           </div>
-                           <div class="col-sm-6">
-                              <div class="form-group">
-                                 <input class="form-control" name="name" id="name" type="text" placeholder="Name">
-                              </div>
-                           </div>
-                           <div class="col-sm-6">
-                              <div class="form-group">
-                                 <input class="form-control" name="email" id="email" type="email" placeholder="Email">
-                              </div>
-                           </div>
-                           <div class="col-12">
-                              <div class="form-group">
-                                 <input class="form-control" name="website" id="website" type="text" placeholder="Website">
+                                 <textarea class="form-control w-100" name="text" id="text" cols="30" rows="9" placeholder="Write Comment" required></textarea>
                               </div>
                            </div>
                         </div>
@@ -230,179 +195,10 @@
                         </div>
                      </form>
                   </div>
+                  {% endif %}
                </div>
                <div class="col-lg-4">
-                  <div class="blog_right_sidebar">
-                     <aside class="single_sidebar_widget search_widget">
-                        <form action="#">
-                           <div class="form-group">
-                              <div class="input-group mb-3">
-                                 <input type="text" class="form-control" placeholder='Search Keyword'
-                                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Keyword'">
-                                 <div class="input-group-append">
-                                    <button class="btn" type="button"><i class="ti-search"></i></button>
-                                 </div>
-                              </div>
-                           </div>
-                           <button class="button rounded-0 primary-bg text-white w-100 btn_4" type="submit">Search</button>
-                        </form>
-                     </aside>
-                     <aside class="single_sidebar_widget post_category_widget">
-                        <h4 class="widget_title">Category</h4>
-                        <ul class="list cat-list">
-                           <li>
-                              <a href="#" class="d-flex">
-                                 <p>Resaurant food</p>
-                                 <p>(37)</p>
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#" class="d-flex">
-                                 <p>Travel news</p>
-                                 <p>(10)</p>
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#" class="d-flex">
-                                 <p>Modern technology</p>
-                                 <p>(03)</p>
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#" class="d-flex">
-                                 <p>Product</p>
-                                 <p>(11)</p>
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#" class="d-flex">
-                                 <p>Inspiration</p>
-                                 <p>(21)</p>
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#" class="d-flex">
-                                 <p>Health Care</p>
-                                 <p>(21)</p>
-                              </a>
-                           </li>
-                        </ul>
-                     </aside>
-                     <aside class="single_sidebar_widget popular_post_widget">
-                        <h3 class="widget_title">Recent Post</h3>
-                        <div class="media post_item">
-                           <img src="{% static './img/post/post_1.png' %}" alt="post">
-                           <div class="media-body">
-                              <a href="single-blog.html">
-                                 <h3>From life was you fish...</h3>
-                              </a>
-                              <p>January 12, 2019</p>
-                           </div>
-                        </div>
-                        <div class="media post_item">
-                           <img src="{% static './img/post/post_2.png' %}" alt="post">
-                           <div class="media-body">
-                              <a href="single-blog.html">
-                                 <h3>The Amazing Hubble</h3>
-                              </a>
-                              <p>02 Hours ago</p>
-                           </div>
-                        </div>
-                        <div class="media post_item">
-                           <img src="{% static './img/post/post_3.png' %}" alt="post">
-                           <div class="media-body">
-                              <a href="single-blog.html">
-                                 <h3>Astronomy Or Astrology</h3>
-                              </a>
-                              <p>03 Hours ago</p>
-                           </div>
-                        </div>
-                        <div class="media post_item">
-                           <img src="{% static './img/post/post_4.png' %}" alt="post">
-                           <div class="media-body">
-                              <a href="single-blog.html">
-                                 <h3>Asteroids telescope</h3>
-                              </a>
-                              <p>01 Hours ago</p>
-                           </div>
-                        </div>
-                     </aside>
-                     <aside class="single_sidebar_widget tag_cloud_widget">
-                        <h4 class="widget_title">Tag Clouds</h4>
-                        <ul class="list">
-                           <li>
-                              <a href="#">project</a>
-                           </li>
-                           <li>
-                              <a href="#">love</a>
-                           </li>
-                           <li>
-                              <a href="#">technology</a>
-                           </li>
-                           <li>
-                              <a href="#">travel</a>
-                           </li>
-                           <li>
-                              <a href="#">restaurant</a>
-                           </li>
-                           <li>
-                              <a href="#">life style</a>
-                           </li>
-                           <li>
-                              <a href="#">design</a>
-                           </li>
-                           <li>
-                              <a href="#">illustration</a>
-                           </li>
-                        </ul>
-                     </aside>
-                     <aside class="single_sidebar_widget instagram_feeds">
-                        <h4 class="widget_title">Instagram Feeds</h4>
-                        <ul class="instagram_row flex-wrap">
-                           <li>
-                              <a href="#">
-                                 <img class="img-fluid" src="{% static './img/post/post_5.png' %}" alt="">
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#">
-                                 <img class="img-fluid" src="{% static './img/post/post_6.png' %}" alt="">
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#">
-                                 <img class="img-fluid" src="{% static './img/post/post_7.png' %}" alt="">
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#">
-                                 <img class="img-fluid" src="{% static './img/post/post_8.png' %}" alt="">
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#">
-                                 <img class="img-fluid" src="{% static './img/post/post_9.png' %}" alt="">
-                              </a>
-                           </li>
-                           <li>
-                              <a href="#">
-                                 <img class="img-fluid" src="{% static './img/post/post_10.png' %}" alt="">
-                              </a>
-                           </li>
-                        </ul>
-                     </aside>
-                     <aside class="single_sidebar_widget newsletter_widget">
-                        <h4 class="widget_title">Newsletter</h4>
-                        <form action="#">
-                           <div class="form-group">
-                              <input type="email" class="form-control" onfocus="this.placeholder = ''"
-                                 onblur="this.placeholder = 'Enter email'" placeholder='Enter email' required>
-                           </div>
-                           <button class="button rounded-0 primary-bg text-white w-100 btn_4"
-                              type="submit">Subscribe</button>
-                        </form>
-                     </aside>
-                  </div>
+                  {% include 'partials/_sidebar.html' %}
                </div>
             </div>
          </div>

@@ -68,14 +68,14 @@
 								<input class="form-control" type="file" name="profile_image" id="profile_image" placeholder="Profile Image">
 							</div>
 						</div>
-						<div class="d-flex justify-content-lg-center flex-lg-row flex-sm-column flex-xs-column">
+						<div class="d-flex flex-column">
 							<button class="button button-contactForm btn_4 mt-0" type="submit">Edit</button>
 							<p class="mx-3 mb-0 align-self-center">or</p>
-							<button class="button button-contactForm btn_4 mt-0">
-								<a class="text-white text-decoration-none" href="{% url 'get_user_profile' profile.user.username %}">Cancel</a>
-							</button>
 						</div>
 					</form>
+					<a class="genric-btn primary-border w-100" style='font-size: 15px; font-weight: 500;' href="{% url 'get_user_profile' profile.user.username %}">Cancel</a>
+					{% comment %} <button class="button button-contactForm btn_4 mt-0 w-100">
+					</button> {% endcomment %}
 				</div>
             </div>
         </div>
