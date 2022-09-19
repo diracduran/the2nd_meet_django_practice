@@ -23,7 +23,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    <form class="form-contact contact_form" action="{% url 'create_blog' %}" method='POST' id="editForm" novalidate="novalidate" enctype="multipart/ form-data">
+                    <form class="form-contact contact_form" action="{% url 'create_blog' %}" method='POST' id="editForm" novalidate="novalidate" enctype="multipart/form-data">
                         {% csrf_token %}
                         <div class="form-group row mb-3">
                             <label for="title"class="col-sm-2 col-form-label">Title</label>

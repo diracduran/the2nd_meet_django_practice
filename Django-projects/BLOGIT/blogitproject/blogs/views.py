@@ -120,7 +120,7 @@ def edit_blog(request, author, slug):
         except:
             return render(request, 'pages/create-blog.html', context=context)
         blog.save()
-        return redirect('/blogs/{0}/{1}/view'.format(author, blog.slug))
+        return redirect('/blogs/blog/{0}/{1}/view'.format(author, blog.slug))
 
 
 @login_required
