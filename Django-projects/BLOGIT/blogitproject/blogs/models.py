@@ -42,7 +42,7 @@ class Blog(models.Model):
 
     # methods __str__, shorten_text and save here
     def __str__(self) -> str:
-        return f'{self.id}. {self.author.user.username} // {self.title[:20]}'
+        return f'{self.id}. {self.author.user.username} // {self.title}'
 
     def shotren_text(self):
         self.text_slug = self.text[:197] + '...'

@@ -18,14 +18,6 @@ def show_blog(request):
     }
     return render(request, 'pages/blog.html', context=context)
 
-# @login_required
-# def show_all_blogs(request):
-#     blogs = Blog.objects.filter(is_published = True)
-#     context = {
-#         'blogs': blogs
-#     }
-#     return render(request, 'profiles/profile.html', context=context)
-
 @login_required
 def single_blog(request, author, slug):
     profile = Profile.objects.get(user__username=author)

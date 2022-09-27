@@ -8,9 +8,9 @@ from blogs.models import Blog
 @login_required
 def get_user_profile(request, username):
     if request.method == 'GET':
-        blogs = Blog.objects.filter(is_published = True)
         profile = get_object_or_404(Profile, user__username=username)
         # profile = Profile.objects.get(user__username=username)
+        blogs = Blog.objects.filter(author=profile)
         context = {
             'profile': profile,
             'blogs': blogs

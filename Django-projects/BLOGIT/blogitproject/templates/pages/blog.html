@@ -65,10 +65,10 @@
                 </div>
               </article>
               {% endfor %}
-
+              {% if blogs %}
               <nav class="blog-pagination justify-content-center d-flex">
                 <ul class="pagination">
-                  <li class="page-item">
+                  {% comment %} <li class="page-item">
                     <a href="#" class="page-link" aria-label="Previous">
                       <i class="ti-angle-left"></i>
                     </a>
@@ -83,9 +83,36 @@
                     <a href="#" class="page-link" aria-label="Next">
                       <i class="ti-angle-right"></i>
                     </a>
+                  </li> {% endcomment %}
+                  {% if blogs.has_previous %}
+                  <li class="page-item">
+                    <a href="/?page={{blogs.previous_page_number}}{{query_string}}" class="page-link" aria-label="Previous">
+                      <i class="ti-angle-left"></i>
+                    </a>
                   </li>
+                  {% endif %}
+                  {% for i in blogs.paginator.page_range %}
+                  {% if blogs.number == i %}
+                  <li class="page-item"><span class='active page-link'>{{i}}</span></li>
+                  {% else %}
+                  <li class="page-item"><a href="/?page={{i}}{{query_string}}" class="page-link">{{i}}</a></li>
+                  {% endif %}
+                  {% endfor %}
+                  {% if blogs.has_next %}
+                  <li class="page-item">
+                    <a href="/?page={{blogs.next_page_number}}{{query_string}}" class="page-link" aria-label="Next">
+                      <i class="ti-angle-right"></i>
+                    </a>
+                  </li>
+                  {% endif %}
                 </ul>
               </nav>
+              {% else %}
+              <h3 class='text-center'>Blogs not found</h3>
+              <div class='d-flex justify-content-center'>
+                <a href="/blogs" class="button rounded-0 primary-bg text-white btn_4">Return</a>
+              </div>
+              {% endif %}
             </div>
           </div>
           <div class="col-lg-4">
