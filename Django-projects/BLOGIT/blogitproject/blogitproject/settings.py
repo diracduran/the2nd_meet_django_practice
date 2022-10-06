@@ -42,10 +42,12 @@ INSTALLED_APPS = [
     'profiles', # add app profiles
     'comments', # add app comments
     'blogs', # add app blogs
+    'leads', # add app leads
 
     #libraries
     'easy_thumbnails',
-    'taggit'
+    'taggit',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -157,6 +159,16 @@ MESSAGE_TAGS = {
 }
 
 TAGGIT_CASE_INSENSITIVE = True
+
+
+# emails
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = ''
+EMAIL_PORT = 0
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_USE_SSL = True
+EMAIL_USE_TLS = False
 
 try:
     from blogitproject.local_settings import *
