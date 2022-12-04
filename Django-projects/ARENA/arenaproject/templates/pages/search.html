@@ -1,0 +1,95 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block title %} SEARCH{% endblock title %}
+{% block content %}
+
+    <div class='d-flex justify-content-center align-items-center mb-5'>
+        <h1 class='fs-1 fw-bold text-primary' style='margin-right: 15px;'>Поиск участника</h1>
+        <a href='{% url 'download_csv' %}' class="btn btn-secondary" tabindex="-1" role="button" aria-disabled="false">Скачать отчёт</a>
+    </div>
+
+    <form class='row row-cols-lg-auto g-3 align-items-center justify-content-center' action="{% url 'search_participant' %}" method="GET">
+        {% csrf_token %}
+        <div class="col-12">
+            <label class="visually-hidden" for="inlineFormInputGroupSearch">Search</label>
+            <div class="input-group">
+              <input type="text" class="form-control" id="inlineFormInputGroupSearch" placeholder="Search" name='search'>
+            </div>
+        </div>
+        
+        <div class="col-12">
+            <div class="dropdown" id="show_by">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Show</button>
+                <ul class='dropdown-menu' aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" href="?filter=16" name='excursion'>16</a></li>
+                    <li><a class="dropdown-item" href="?filter=32" name='excursion'>32</a></li>
+                    <li><a class="dropdown-item" href="?filter=64" name='excursion'>64</a></li>
+                    <li><a class="dropdown-item" href="?filter={{guests|length}}" name='excursion'>all</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </form>
+    <table class="table table-hover mt-5">
+        <thead>
+            <tr>
+                <th class='text-muted fw-light'>id</th>
+                <th class='text-muted fw-light'>Имя</th>
+                <th class='text-muted fw-light'>Фамилия</th>
+                <th class='text-muted fw-light'>Телефон</th>
+                <th class='text-muted fw-light'>Email</th>
+                <th class='text-muted fw-light'>Зарегистрирован</th>
+                <th class='text-muted fw-light'>Экскурсия</th>
+                <th class='text-muted fw-light'>Статус отправки email</th>
+                <th class='text-muted fw-light'>Статус доставки email</th>
+                <th class='text-muted fw-light'>Событие</th>
+                <th class='text-muted fw-light'>Имя персонала</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for g in guests %}
+            <tr>
+                <td>{{g.pk}}</td>
+                <td>{{g.first_name}}</td>
+                <td>{{g.last_name}}</td>
+                <td>{{g.phone}}</td>
+                <td>{{g.email}}</td>
+                <td>{{g.registered_at}}</td>
+                <td>{{g.excursion}}</td>
+                <td>{% if g.email_status %}да{% else %}нет{% endif %}</td>
+                <td>{% if g.email_send %}да{% else %}нет{% endif %}</td>
+                <td>{{g.event}}</td>
+                <td>{{g.staff.get_full_name}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination d-flex justify-content-center">
+            {% if guests.has_previous %}
+            <li class="page-item">
+              <a class="page-link" href="/?page={{guests.previous_page_number}}{{query_string}}" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            {% endif %}
+            {% for i in guests.paginator.page_range %}
+            {% if guests.number == i %}
+            <li class="page-item active"><span class="page-link">{{i}}</span></li>
+            {% else %}
+            <li class="page-item"><a href="/?page={{i}}{{query_string}}" class="page-link">{{i}}</a></li>
+            {% endif %}
+            {% endfor %}
+            {% if blogs.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="/?page={{guests.next_page_number}}{{query_string}}" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+{% endblock content %}

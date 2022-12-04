@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block title %} EXCURSIONS{% endblock title %}
+{% block content %}
+<h1 class='fs-1 fw-bold text-primary text-center mb-5'>Экскурсии</h1>
+    <div class="row d-flex justify-content-between">
+        {% for exc in excursions %}
+        <div class="col-sm-6 shadow exc-card mb-4" style='width: 49%;'>
+            <div class="d-flex p-4 align-items-center">
+                <div class="{% if exc.number_of_visitors < exc.total_visitors %}bg-success{% else %}bg-danger{% endif %} rounded-circle" style="width: 45px; height: 45px; margin-right: 85px;"></div>
+                <div class="">
+                    <div class="text-muted">{{exc.weekdays}} {{exc.timelines}}</div>
+                    <div class="text-primary fw-bold fs-2">{{exc.number_of_visitors}}/{{exc.total_visitors}}</div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock content %}

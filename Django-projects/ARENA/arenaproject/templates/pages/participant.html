@@ -1,0 +1,96 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block title %}АНКЕТА УЧАСТНИКА{% endblock title %}
+{% block content %}
+    <h1 class='fs-1 fw-bold text-primary text-center mb-5'>Анкета участника</h1>
+
+    <form class="row g-3 needs-validation" method='POST' action='{% url 'participant' %}' novalidate>
+        {% csrf_token %}
+        <div class="shadow p-0 mb-5 bg-white rounded">
+            <div class="border-bottom p-3">
+                <h2 class="text-primary fw-bold mb-0">Контактные данные</h2>
+            </div>
+            <div class="p-3 row g-3">
+                <div class="col-md-6">
+                    <label for="inputFirstName" class="form-label">Имя</label>
+                    <input type="text" name='first_name' class="form-control" id="inputFirstName" required>
+                    {% comment %} {% render_field form.first_name %} {% endcomment %}
+                    <div class="valid-feedback">Все хорошо!</div>
+                    <div class="invalid-feedback">Укажите имя</div>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="inputLastName" class="form-label">Фамилия</label>
+                    <input type="text" name="last_name" class="form-control" id="inputLastName" required>
+                    <div class="valid-feedback">Все хорошо!</div>
+                    <div class="invalid-feedback">Укажите фамилию</div>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="inputPhone" class="form-label">Телефон</label>
+                    <input type="phone" name="phone" class="form-control" id="inputPhone" required>
+                    <div class="valid-feedback">Все хорошо!</div>
+                    <div class="invalid-feedback">Укажите телефон</div>
+                  </div>
+            </div>
+        </div>
+        <div class="shadow p-0 mb-5 bg-white rounded">
+            <div class="border-bottom p-3">
+                <h2 class="text-primary fw-bold mb-0">Экскурсия</h2>
+            </div>
+            <div class="p-3 row g-3">
+                <div class="col-md-6">
+                    <label for="inputExcursion" class="form-label">Выбор экскурсии</label>
+                    <select id="inputExcursion" class="form-control" name='excursion' placeholder="">
+                        <option selected>Выберите дату и время...</option>
+                        {% for exc in excursion %}
+                        {% if exc.is_available and exc.is_shown %}
+                        <option value="{{exc}}">{{exc}}</option>
+                        {% endif %}
+                        {% endfor %}
+                    </select>
+                    <div class="valid-feedback">Все хорошо!</div>
+                    <div class="invalid-feedback">Выберите дату и время</div>
+                </div>
+            </div>
+        </div>
+        <div class="shadow p-0 mb-5 bg-white rounded">
+            <div class="border-bottom p-3">
+                <h2 class="text-primary fw-bold mb-0">Приглашение на ближайшее событие</h2>
+            </div>
+            <div class="p-3 row g-3">
+                <div class="col-md-6">
+                    <label for="inputEvent" class="form-label">Выберите наиболее интересное событие</label>
+                    <select id="inputEvent" class="form-control" name='event' placeholder="">
+                        <option selected>Выберите событие...</option>
+                        {% for event in events %}
+                        <option value="{{event}}">{{event}}</option>
+                        {% endfor %}
+                    </select>
+                    <div class="valid-feedback">Все хорошо!</div>
+                    <div class="invalid-feedback">Выберите событие</div>
+                </div>
+                <div class="col-md-6">
+                    <label for="inputEmail" class="form-label">Эл. адрес</label>
+                    <input type="email" class="form-control" id="inputEmail" name="email">
+                    <small style="color: #ccc;">Email в формате you@example.com</small>
+                    <div class="valid-feedback">Все хорошо!</div>
+                    <div class="invalid-feedback">Укажите email</div>
+                </div>
+            </div>
+        </div>
+        <div class="shadow p-0 bg-white rounded">
+            <div class="border-bottom p-3">
+                <h2 class="text-primary fw-bold mb-0">Завершение</h2>
+            </div>
+            <div class="p-3">
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1" name='pg_agreement'>
+                    <label class="form-check-label" for="exampleCheck1">Согласие на обработку персональных данных</label>
+                    <div class="valid-feedback">Все хорошо!</div>
+                    <div class="invalid-feedback">Вы должны дать согласие перед регистрацией</div>
+                </div>
+                <button type="submit" class="btn btn-primary">Зарегистрировать</button>
+            </div>
+        </div>
+    </form>
+{% endblock content %}

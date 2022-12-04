@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block title %}LOG IN{% endblock title %}
+{% block content %}
+    <h1 class='fs-1 fw-bold text-primary text-center mb-5'>Вход</h1>
+    <form class="row g-3 needs-validation" novalidate method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+        <div class="col-md-6">
+            <label for="inputName" class="form-label">Имя пользователя</label>
+            <input type="text" class="form-control" id="inputName" name='username' required>
+            <div class="valid-feedback">Все хорошо!</div>
+            <div class="invalid-feedback">Неправильный логин</div>
+        </div>
+        <div class="col-6">
+            <label for="inputPassword" class="form-label">Пароль</label>
+            <input type="password" class="form-control" id="inputPassword" name='password' required>
+            <div class="valid-feedback">Все хорошо!</div>
+            <div class="invalid-feedback">Неправильный палоль</div>
+        </div>
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Войти</button>
+        </div>
+    </form>
+{% endblock content %}
