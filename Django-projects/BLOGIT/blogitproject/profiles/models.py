@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from profiles.utils import generate_profile_thumbnail
+from uuid import uuid4
 
 # Create your models here.
 class Profile(models.Model):
@@ -13,6 +14,7 @@ class Profile(models.Model):
     verbose_name='Profile Image', blank=True)
     profile_image_thumbnail = models.ImageField(blank=True, verbose_name='Profile Image Thumbnail')
     is_thumbnailed = models.BooleanField(default=False, help_text='Флаг, который регулирует состояние создания миниатюры для фото профиля')
+    reset_password_link_uuid = models.UUIDField(default=uuid4, blank=False)
 
     def save(self, *args, **kwargs):
         print("Идет сохранение профиля {}".format(self))
@@ -29,7 +31,8 @@ class Profile(models.Model):
 def create_user_profile(sender, instance, created, *args, **kwargs):
     if created:
         profile = Profile.objects.create(
-            user=instance
+            user=instance,
+            reset_password_link_uuid=uuid4()
         )
 
 @receiver(post_save, sender=Profile)

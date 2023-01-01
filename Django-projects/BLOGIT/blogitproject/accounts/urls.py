@@ -5,5 +5,7 @@ from accounts import views
 urlpatterns = [
     path('login/', views.login, name='login'),
     path('signin/', views.signin, name='signin'),
-     path('logout/', views.logout, name='logout')
+    path('logout/', views.logout, name='logout'),
+    path('forgot_password/', views.forgot_password, name='forgot_password'),
+    path('change_password/<slug:reset_password_link_uuid>/', views.change_password, name='change_password')
 ]

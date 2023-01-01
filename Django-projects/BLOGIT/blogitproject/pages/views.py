@@ -1,52 +1,55 @@
 from django.shortcuts import render
-from blogs.models import Blog
-from django.core.paginator import Paginator
+from pages.tasks import long_await # для примера
+# from blogs.models import Blog
+# from django.core.paginator import Paginator
 
 # Create your views here.
 # Create your views here.
 def index(request):
-    blogs = Blog.objects.filter(is_published=True)
 
-    query_string = ''
+    long_await.delay(10) # для примера
+    # blogs = Blog.objects.filter(is_published=True)
 
-    # Search
-    search = request.GET.get('search', '')
-    if search:
-        blogs = blogs.filter(text__icontains=search)
-        query_string += f'&search={search}'
-    
-    # sort by
-    sort_by = request.GET.get('sort_by', '')
-    if sort_by:
-        sort_by_dict = {
-            'a-z': 'title',
-            'z-a': '-title',
-            'new-old': '-created_at',
-            'old-new': 'created_at'
-        }
-        blogs = blogs.order_by(sort_by_dict[sort_by])
-        query_string += f'&sort_by={sort_by}'
-    
-    # category
-    category = request.GET.get('category', '')
-    if category:
-        blogs = blogs.filter(category=category)
-        query_string += f'&category={category}'
-    
-    # filter by tag
-    filter_by_tag = request.GET.get('filter_by_tag', '')
-    if filter_by_tag:
-        blogs = blogs.filter(tags__name=filter_by_tag)
-        query_string += f'&filter_by_tag={filter_by_tag}'
-    
-    # paginator
-    paginator = Paginator(blogs, 2)
+    # query_string = ''
 
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
+    # # Search
+    # search = request.GET.get('search', '')
+    # if search:
+    #     blogs = blogs.filter(text__icontains=search)
+    #     query_string += f'&search={search}'
+    
+    # # sort by
+    # sort_by = request.GET.get('sort_by', '')
+    # if sort_by:
+    #     sort_by_dict = {
+    #         'a-z': 'title',
+    #         'z-a': '-title',
+    #         'new-old': '-created_at',
+    #         'old-new': 'created_at'
+    #     }
+    #     blogs = blogs.order_by(sort_by_dict[sort_by])
+    #     query_string += f'&sort_by={sort_by}'
+    
+    # # category
+    # category = request.GET.get('category', '')
+    # if category:
+    #     blogs = blogs.filter(category=category)
+    #     query_string += f'&category={category}'
+    
+    # # filter by tag
+    # filter_by_tag = request.GET.get('filter_by_tag', '')
+    # if filter_by_tag:
+    #     blogs = blogs.filter(tags__name=filter_by_tag)
+    #     query_string += f'&filter_by_tag={filter_by_tag}'
+    
+    # # paginator
+    # paginator = Paginator(blogs, 2)
 
-    context = {
-        'blogs': page_obj, #blogs
-        'query_string': query_string,
-    }
-    return render(request, 'pages/blog.html', context=context)
+    # page_number = request.GET.get('page')
+    # page_obj = paginator.get_page(page_number)
+
+    # context = {
+    #     'blogs': page_obj, #blogs
+    #     'query_string': query_string,
+    # }
+    return render(request, 'pages/index.html')

@@ -170,6 +170,18 @@ EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_SSL = True
 EMAIL_USE_TLS = False
 
+# redis settings
+REDIS_HOST = '127.0.0.1'
+REDIS_PORT = '6379' 
+
+# celery settings
+CELERY_BROKER_URL = f'redis://{REDIS_HOST}:{REDIS_PORT}/0'
+CELERY_RESULT_BACKEND = f'redis://{REDIS_HOST}:{REDIS_PORT}/0'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERAILIZER = 'json'
+CELERY_RESULT_SERAILIZER = 'json'
+
+
 try:
     from blogitproject.local_settings import *
 except ModuleNotFoundError:
