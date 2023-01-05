@@ -1,5 +1,6 @@
 from django.urls import path
 from tasks import views as tasks_views
+from accounts import views as accounts_views
 
 
 urlpatterns = [
@@ -10,4 +11,7 @@ urlpatterns = [
     path('tasks/complete_all_task', tasks_views.complete_all_task),
     path('tasks/uncomplete_all_task', tasks_views.uncomplete_all_task),
     path('tasks/delete_all_tasks', tasks_views.delete_all_tasks),
+
+    # accounts
+    path('signin/', accounts_views.signin),
 ]

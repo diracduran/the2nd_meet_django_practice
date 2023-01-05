@@ -1,8 +1,10 @@
 from rest_framework import serializers
 from tasks.models import Task
+from accounts.serializers import UserSerializer
 
 
 class TaskSerializer(serializers.ModelSerializer):
+    user = UserSerializer()
     class Meta:
         model = Task
         fields = [
@@ -11,7 +13,8 @@ class TaskSerializer(serializers.ModelSerializer):
             'short_description', 
             'description', 
             'priority', 
-            'is_completed'
+            'is_completed',
+            'user'
         ]
         # fields = '__all__'
         # exclude = ['user']
@@ -22,5 +25,7 @@ class CreateTaskSerializer(serializers.ModelSerializer):
         fields = [
             'title', 
             'description', 
+            'short_description', 
             'priority', 
+            'user'
         ]

@@ -1,9 +1,10 @@
 from django.shortcuts import render
-from rest_framework.decorators import api_view, parser_classes, renderer_classes
+from rest_framework.decorators import api_view, parser_classes, renderer_classes, permission_classes
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.parsers import JSONParser, FormParser
 from rest_framework.renderers import JSONRenderer, BrowsableAPIRenderer
+from rest_framework.permissions import AllowAny, IsAdminUser, IsAuthenticated
 from tasks.models import Task
 from tasks.serializers import TaskSerializer, CreateTaskSerializer
 
@@ -13,15 +14,18 @@ from tasks.serializers import TaskSerializer, CreateTaskSerializer
 @api_view(['GET', 'POST'])
 @parser_classes([JSONParser, FormParser])
 @renderer_classes([JSONRenderer, BrowsableAPIRenderer])
+@permission_classes([IsAuthenticated])
 def get_tasks_list(request):
     if request.method == 'GET':
-        tasks = Task.objects.all()
+        tasks = Task.objects.filter(user=request.user)
         tasks_serializer = TaskSerializer(tasks, many=True)
         return Response(tasks_serializer.data, status=status.HTTP_200_OK)
 
     if request.method == 'POST':
         # print(request.data)
+        user=request.user
         data = request.data
+        data.update({'user': user.id})
         create_task_serilizer = CreateTaskSerializer(data=data)
         if create_task_serilizer.is_valid():
             # print(create_task_serilizer.data)
@@ -71,7 +75,7 @@ def get_tasks_by_priority(request):
 @renderer_classes([JSONRenderer, BrowsableAPIRenderer])
 def complete_all_task(request): 
     if request.method == 'PUT':
-        tasks = Task.objects.filter(is_completed=False) 
+        tasks = Task.objects.filter(user=request.user).filter(is_completed=False) 
         for task in tasks: 
             task.is_completed = True
             task.save() 
@@ -83,7 +87,7 @@ def complete_all_task(request):
 @renderer_classes([JSONRenderer, BrowsableAPIRenderer])
 def uncomplete_all_task(request): 
     if request.method == 'PUT':
-        tasks = Task.objects.filter(is_completed=True) 
+        tasks = Task.objects.filter(user=request.user).filter(is_completed=True) 
         for task in tasks: 
             task.is_completed = False
             task.save() 
@@ -95,7 +99,7 @@ def uncomplete_all_task(request):
 @renderer_classes([JSONRenderer, BrowsableAPIRenderer])
 def delete_all_tasks(request): 
     if request.method == 'DELETE':  
-        tasks = Task.objects.all() 
+        tasks = Task.objects.filter(user=request.user) 
         for task in tasks: 
             task.delete() 
         return Response(status=status.HTTP_204_NO_CONTENT)
