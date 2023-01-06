@@ -39,6 +39,7 @@ def get_tasks_list(request):
 @api_view(['GET', 'PUT', 'DELETE'])
 @parser_classes([JSONParser, FormParser])
 @renderer_classes([JSONRenderer, BrowsableAPIRenderer])
+@permission_classes([IsAuthenticated])
 def get_or_update_task_by_id(request, id):
     try:
         task = Task.objects.get(id=id)
@@ -64,6 +65,7 @@ def get_or_update_task_by_id(request, id):
 # task by priority
 @api_view(['GET'])
 @renderer_classes([JSONRenderer, BrowsableAPIRenderer])
+@permission_classes([IsAuthenticated])
 def get_tasks_by_priority(request):
     if request.method == 'GET':
         task_priorities = Task.get_priorities()
@@ -73,6 +75,7 @@ def get_tasks_by_priority(request):
 @api_view(['PUT'])
 @parser_classes([JSONParser, FormParser])
 @renderer_classes([JSONRenderer, BrowsableAPIRenderer])
+@permission_classes([IsAuthenticated])
 def complete_all_task(request): 
     if request.method == 'PUT':
         tasks = Task.objects.filter(user=request.user).filter(is_completed=False) 
@@ -85,6 +88,7 @@ def complete_all_task(request):
 @api_view(['PUT'])
 @parser_classes([JSONParser, FormParser])
 @renderer_classes([JSONRenderer, BrowsableAPIRenderer])
+@permission_classes([IsAuthenticated])
 def uncomplete_all_task(request): 
     if request.method == 'PUT':
         tasks = Task.objects.filter(user=request.user).filter(is_completed=True) 
@@ -97,6 +101,7 @@ def uncomplete_all_task(request):
 @api_view(['DELETE'])
 @parser_classes([JSONParser, FormParser])
 @renderer_classes([JSONRenderer, BrowsableAPIRenderer])
+@permission_classes([IsAuthenticated])
 def delete_all_tasks(request): 
     if request.method == 'DELETE':  
         tasks = Task.objects.filter(user=request.user) 

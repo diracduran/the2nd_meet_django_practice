@@ -24,12 +24,16 @@ from rest_framework_simplejwt.views import (
     TokenVerifyView
 )
 from accounts import views as accounts_views
+from todoitapiproject.docs import urlpatterns as docs_urlpatterns
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path('api-auth/', include('rest_framework.urls')),
     re_path(r'^api/demo/', include('demoapi.urls')),
     re_path(r'^api/v1/', include('api_v1.urls')),
+
+    # tokens
     path('api-token-auth/', views.obtain_auth_token),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
@@ -37,3 +41,7 @@ urlpatterns = [
     path('account-token-auth', accounts_views.CustomAuthToken.as_view()),
     path('account-custom-token', accounts_views.MyObtainTokenPairView.as_view()),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+# docs
+urlpatterns += docs_urlpatterns
