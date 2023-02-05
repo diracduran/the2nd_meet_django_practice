@@ -3,7 +3,6 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.contrib import auth
 from django.contrib.auth.models import User
-from django.contrib import messages
 
 # Create your views here.
 def login(request):
@@ -15,10 +14,8 @@ def login(request):
         user = auth.authenticate(request, username=username, password=password)
         if user is not None:
             auth.login(request, user)
-            # messages.success(request, 'Welcome back, {} :>'.format(user.get_username()))
             return redirect('index')
         else:
-            # messages.error(request, 'Something is going wrong :<')
             return render(request, 'accounts/login.html')
 
 @login_required

@@ -1,5 +1,7 @@
 from datetime import datetime
 from django.db import models
+from django.contrib.postgres.fields import ArrayField
+
 
 # Create your models here.
 class Excursion(models.Model):
@@ -25,7 +27,7 @@ class Excursion(models.Model):
     total_visitors = models.IntegerField(default=MAX_VISITORS)
     is_available = models.BooleanField(default=True)
     is_shown = models.BooleanField(default=True)
-    # title = models.CharField(default='', auto_created=True, max_length=50)
+    id = models.IntegerField('id', default=1, editable=False, primary_key=True)
 
 
     def __str__(self):
@@ -34,4 +36,9 @@ class Excursion(models.Model):
 
     def save(self, *args, **kwargs):
         self.title = f'{self.weekdays} {self.timelines}'
+        if self._state.adding:
+            last_id = Excursion.objects.all().aggregate(largest=models.Max('id'))['largest']
+
+            if last_id is not None:
+                self.id = last_id + 1
         super(Excursion, self).save(*args, **kwargs)

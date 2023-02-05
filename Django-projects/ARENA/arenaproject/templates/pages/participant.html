@@ -44,7 +44,7 @@
                         <option selected>Выберите дату и время...</option>
                         {% for exc in excursion %}
                         {% if exc.is_available and exc.is_shown %}
-                        <option value="{{exc}}">{{exc}}</option>
+                        <option value="{{exc.id}}">{{exc}}</option>
                         {% endif %}
                         {% endfor %}
                     </select>

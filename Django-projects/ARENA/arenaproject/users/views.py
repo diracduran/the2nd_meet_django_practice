@@ -9,27 +9,33 @@ from django.http import HttpResponse
 # Create your views here.
 @login_required
 def participant(request):
-    user = request.user
-    excursion = Excursion.objects.filter(is_available=True, is_shown=True)
-    events = [event[0] for event in Userform.EVENTS]
-    context = {
-        'user': user,
-        'excursion': excursion,
-        'events': events,
-    }
     if request.method == 'GET':
         return render(request, 'pages/participant.html', context=context)
     if request.method == 'POST':
+        user = request.user
+        excursions= Excursion.objects.filter(is_available=True)
+        events = [event[0] for event in Userform.EVENTS]
+        context = {
+            'user': user,
+            'excursions': excursions,
+            'events': events,
+        }
         guest = Userform()
+
+        guest.staff = request.user
 
         guest.first_name = request.POST['first_name']
         guest.last_name = request.POST['last_name']
-        excursion = request.POST['excursion']
+        guest.excursion.id = request.POST['excursion']
         guest.event = request.POST['event']
         guest.email = request.POST['email']
         guest.pg_agreement = request.POST['pg_agreement']
         
+        for ecx in excursions: # (variable) excursions: Unbound
+            if ecx.id == int(guest.excursion.id):
+                ecx.number_of_visitors += 1 # RelatedObjectDoesNotExist at /participant Userform has no excursion.
         guest.save()
+        excursions.save()
         return render(request, 'pages/index.html')
         
 
@@ -69,7 +75,7 @@ def search_participant(request):
 
     return render(request, 'pages/search.html', context=context)
 
-
+@login_required
 def download_csv(request):
     guests = Userform.objects.all()
     fields = ['id', 'Имя', 'Фамилия', 'Телефон', 'Email', 'Зарегистрирован', 'Экскурсия', 'Статус отправки email', 'Статус доставки email', 'Событие', 'Имя персонала']

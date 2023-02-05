@@ -3,25 +3,29 @@
 {% block title %}HOME{% endblock title %}
 {% block content %}
     <div class="btn-group-vertical d-flex flex-column align-items-center">
-        {% if user.is_superuser %}
-        <a href='{% url 'participant' %}' class="btn btn-primary w-20 mb-2">Анкета</a>
-        <a href='{% url 'search_participant' %}' class="btn btn-primary w-20 mb-2">Поиск участника</a>
-        <a href='{% url 'emails' %}' class="btn btn-primary w-20 mb-2">Рассылка Email</a>
-        <a href='{% url 'excursions' %}' class="btn btn-primary w-20 mb-2">Экскурсии</a>
-        <a href='/admin' class="btn btn-danger w-20 mb-2">Админка</a>
-        {% endif %}
-        {% if not user.is_superuser and user.is_staff %}
-        <a href='{% url 'participant' %}' class="btn btn-primary w-20 mb-2">Анкета</a>
-        <a href='{% url 'search_participant' %}' class="btn btn-primary w-20 mb-2">Поиск участника</a>
-        <a href='{% url 'emails' %}' class="btn btn-primary w-20 mb-2">Рассылка Email</a>
-        <a href='{% url 'excursions' %}' class="btn btn-primary w-20 mb-2">Экскурсии</a>
-        {% endif %}
-        {% if not user.is_superuser and not user.is_staff %}
-        <a href='{% url 'participant' %}' class="btn btn-primary w-20 mb-2">Анкета</a>
-        <a href='#' class="btn btn-primary w-20 mb-2">Экскурсии</a>
-        {% endif %}
         {% if user.is_authenticated %}
-        <a href='{% url 'logout' %}' class="btn btn-secondary w-20">Выйти</a>
+            {% if user.is_superuser %}
+            <a href='{% url 'participant' %}' class="btn btn-primary w-20 mb-2">Анкета</a>
+            <a href='{% url 'search_participant' %}' class="btn btn-primary w-20 mb-2">Поиск участника</a>
+            <a href='{% url 'emails' %}' class="btn btn-primary w-20 mb-2">Рассылка Email</a>
+            <a href='{% url 'excursions' %}' class="btn btn-primary w-20 mb-2">Экскурсии</a>
+            <a href='/admin' class="btn btn-danger w-20 mb-2">Админка</a>
+            {% endif %}
+            {% if not user.is_superuser and user.is_staff %}
+            <a href='{% url 'participant' %}' class="btn btn-primary w-20 mb-2">Анкета</a>
+            <a href='{% url 'search_participant' %}' class="btn btn-primary w-20 mb-2">Поиск участника</a>
+            <a href='{% url 'emails' %}' class="btn btn-primary w-20 mb-2">Рассылка Email</a>
+            <a href='{% url 'excursions' %}' class="btn btn-primary w-20 mb-2">Экскурсии</a>
+            {% endif %}
+            {% if not user.is_superuser and not user.is_staff %}
+            <a href='{% url 'participant' %}' class="btn btn-primary w-20 mb-2">Анкета</a>
+            <a href='#' class="btn btn-primary w-20 mb-2">Экскурсии</a>
+            {% endif %}
+            {% if user.is_authenticated %}
+            <a href='{% url 'logout' %}' class="btn btn-secondary w-20">Выйти</a>
+            {% endif %}
+        {% else %}
+            <p>Пожалуйста, войтите</p>
         {% endif %}
     </div>
 {% endblock content %}
