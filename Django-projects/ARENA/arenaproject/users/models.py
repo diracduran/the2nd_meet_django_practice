@@ -1,6 +1,9 @@
 from excursions.models import Excursion
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
+from django.db.models import F
 
 # Create your models here.
 class Userform(models.Model):
@@ -14,7 +17,7 @@ class Userform(models.Model):
     EVENTS = tuple(zip(EVENTS, EVENTS))
     first_name = models.CharField(max_length=50, blank=False)
     last_name = models.CharField(max_length=50, blank=False)
-    phone = models.CharField(max_length=10, blank=False, unique=True)    
+    phone = models.CharField(max_length=10, blank=False)    
     email = models.EmailField()
     pd_argeement = models.BooleanField(default=True, verbose_name='Согласие на обработку персональных данных')
     email_send = models.BooleanField(default=False, verbose_name='Статус отправки email')
@@ -27,3 +30,7 @@ class Userform(models.Model):
 
     def __str__(self):
         return f"{self.first_name} {self.last_name} // {self.excursion} // {self.staff.first_name} {self.staff.last_name}"
+    
+    def save(self, *args, **kwargs):
+        Excursion.objects.filter(id=self.excursion.id).update(number_of_visitors=F('number_of_visitors')+1)
+        super(Userform, self).save(*args, **kwargs)

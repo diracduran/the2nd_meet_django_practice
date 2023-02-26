@@ -13,11 +13,6 @@ def excursions(request):
         'guests': guests
     }
     for exc in excursions:
-        date_time = f"{exc.weekdays} {exc.timelines}"
-        for guest in guests:
-            if guest.excursion == date_time:
-                exc.number_of_visitors = guests.count(guest.excursion)
-
         if exc.number_of_visitors >= exc.total_visitors:
             exc.is_available = False
             exc.is_shown = False

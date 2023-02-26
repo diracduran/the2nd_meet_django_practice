@@ -10,32 +10,33 @@ from django.http import HttpResponse
 @login_required
 def participant(request):
     if request.method == 'GET':
-        return render(request, 'pages/participant.html', context=context)
-    if request.method == 'POST':
         user = request.user
-        excursions= Excursion.objects.filter(is_available=True)
+        excursion= Excursion.objects.filter(is_available=True)
         events = [event[0] for event in Userform.EVENTS]
         context = {
             'user': user,
-            'excursions': excursions,
+            'excursion': excursion,
             'events': events,
         }
+        return render(request, 'pages/participant.html', context=context)
+    if request.method == 'POST':
         guest = Userform()
 
         guest.staff = request.user
 
         guest.first_name = request.POST['first_name']
         guest.last_name = request.POST['last_name']
-        guest.excursion.id = request.POST['excursion']
+        guest.phone = request.POST['phone']
+        guest.excursion = Excursion.objects.get(id=request.POST['excursion'])
         guest.event = request.POST['event']
         guest.email = request.POST['email']
         guest.pg_agreement = request.POST['pg_agreement']
         
-        for ecx in excursions: # (variable) excursions: Unbound
-            if ecx.id == int(guest.excursion.id):
-                ecx.number_of_visitors += 1 # RelatedObjectDoesNotExist at /participant Userform has no excursion.
+        # for ecx in excursions: # (variable) excursions: Unbound
+        #     if ecx.id == int(guest.excursion.id):
+        #         ecx.number_of_visitors += 1 # RelatedObjectDoesNotExist at /participant Userform has no excursion.
         guest.save()
-        excursions.save()
+        # excursions.save()
         return render(request, 'pages/index.html')
         
 
